@@ -1,0 +1,86 @@
+[
+  {
+    "file": "assets/img/ATM_D01_0001__01_ranni_golden_hour.jpg",
+    "kind": "atmosfera",
+    "source": "outputs/Hodonin_ATMOSFERY_FINAL/D01_0001__01_ranni_golden_hour.jpg",
+    "title": "D01 0001  01 ranni golden hour"
+  },
+  {
+    "file": "assets/img/ATM_D03_0036__04_realisticka_noc.jpg",
+    "kind": "atmosfera",
+    "source": "outputs/Hodonin_ATMOSFERY_FINAL/D03_0036__04_realisticka_noc.jpg",
+    "title": "D03 0036  04 realisticka noc"
+  },
+  {
+    "file": "assets/img/ATM_D03_0036__05_blue_hour.jpg",
+    "kind": "atmosfera",
+    "source": "outputs/Hodonin_ATMOSFERY_FINAL/D03_0036__05_blue_hour.jpg",
+    "title": "D03 0036  05 blue hour"
+  },
+  {
+    "file": "assets/img/ATM_D05_0076__01_ranni_golden_hour.jpg",
+    "kind": "atmosfera",
+    "source": "outputs/Hodonin_ATMOSFERY_FINAL/D05_0076__01_ranni_golden_hour.jpg",
+    "title": "D05 0076  01 ranni golden hour"
+  },
+  {
+    "file": "assets/img/ATM_D05_0076__02_letni_odpoledne.jpg",
+    "kind": "atmosfera",
+    "source": "outputs/Hodonin_ATMOSFERY_FINAL/D05_0076__02_letni_odpoledne.jpg",
+    "title": "D05 0076  02 letni odpoledne"
+  },
+  {
+    "file": "assets/img/ATM_P01_0854__05_blue_hour.jpg",
+    "kind": "atmosfera",
+    "source": "outputs/Hodonin_ATMOSFERY_FINAL/P01_0854__05_blue_hour.jpg",
+    "title": "P01 0854  05 blue hour"
+  },
+  {
+    "file": "assets/img/ATM_P02_0864__02_letni_odpoledne.jpg",
+    "kind": "atmosfera",
+    "source": "outputs/Hodonin_ATMOSFERY_FINAL/P02_0864__02_letni_odpoledne.jpg",
+    "title": "P02 0864  02 letni odpoledne"
+  },
+  {
+    "file": "assets/img/ATM_P02_0864__05_blue_hour.jpg",
+    "kind": "atmosfera",
+    "source": "outputs/Hodonin_ATMOSFERY_FINAL/P02_0864__05_blue_hour.jpg",
+    "title": "P02 0864  05 blue hour"
+  },
+  {
+    "file": "assets/img/ATM_P03_0870__04_realisticka_noc.jpg",
+    "kind": "atmosfera",
+    "source": "outputs/Hodonin_ATMOSFERY_FINAL/P03_0870__04_realisticka_noc.jpg",
+    "title": "P03 0870  04 realisticka noc"
+  },
+  {
+    "file": "assets/img/VIZ_Koupelni2_interier_2kk_01_vizualizace.jpg",
+    "kind": "interier_viz",
+    "source": "outputs/Hodonin_VIZUALIZACE_5/JPG/Koupelni2_interier_2kk_01_vizualizace.jpg",
+    "title": "Koupelni2 interier 2kk 01 vizualizace"
+  },
+  {
+    "file": "assets/img/VIZ_Koupelni2_interier_2kk_02_vizualizace.jpg",
+    "kind": "interier_viz",
+    "source": "outputs/Hodonin_VIZUALIZACE_5/JPG/Koupelni2_interier_2kk_02_vizualizace.jpg",
+    "title": "Koupelni2 interier 2kk 02 vizualizace"
+  },
+  {
+    "file": "assets/img/VIZ_Koupelni2_interier_3kk_01_vizualizace.jpg",
+    "kind": "interier_viz",
+    "source": "outputs/Hodonin_VIZUALIZACE_5/JPG/Koupelni2_interier_3kk_01_vizualizace.jpg",
+    "title": "Koupelni2 interier 3kk 01 vizualizace"
+  },
+  {
+    "file": "assets/img/VIZ_Koupelni2_interier_3kk_02_vizualizace.jpg",
+    "kind": "interier_viz",
+    "source": "outputs/Hodonin_VIZUALIZACE_5/JPG/Koupelni2_interier_3kk_02_vizualizace.jpg",
+    "title": "Koupelni2 interier 3kk 02 vizualizace"
+  },
+  {
+    "file": "assets/img/VIZ_Koupelni2_interier_4kk_02_vizualizace.jpg",
+    "kind": "interier_viz",
+    "source": "outputs/Hodonin_VIZUALIZACE_5/JPG/Koupelni2_interier_4kk_02_vizualizace.jpg",
+    "title": "Koupelni2 interier 4kk 02 vizualizace"
+  }
+]
