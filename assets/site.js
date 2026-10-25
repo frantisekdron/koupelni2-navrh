@@ -43,7 +43,36 @@ if(table){
   document.querySelector('#unit-reset').addEventListener('click',()=>{search.value='';type.value='';floor.value='';status.value='';document.querySelectorAll('[data-floor-button]').forEach(x=>x.classList.remove('active'));apply()});
   tabs.find(x=>x.dataset.categoryButton==='ubytovani').click();
 }
-const galleryButtons=[...document.querySelectorAll('[data-gallery]')];if(galleryButtons.length){const cards=[...document.querySelectorAll('.gallery-card')];galleryButtons.forEach(button=>button.addEventListener('click',()=>{galleryButtons.forEach(x=>x.classList.toggle('selected',x===button));cards.forEach(x=>x.hidden=button.dataset.gallery!=='all'&&x.dataset.kind!==button.dataset.gallery)}));const dialog=document.querySelector('#lightbox');[...cards,...document.querySelectorAll('.visual-preview')].forEach(card=>card.addEventListener('click',()=>{dialog.querySelector('img').src=card.dataset.full;dialog.showModal()}));document.querySelector('#lightbox-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()})}
+const galleryButtons=[...document.querySelectorAll('[data-gallery]')];
+if(galleryButtons.length){
+ const cards=[...document.querySelectorAll('.gallery-card')],visuals=[...document.querySelectorAll('.visual-preview')];
+ const dialog=document.querySelector('#lightbox'),picture=dialog.querySelector('img');let group=[],position=0;
+ const nouns={interier:'Interiéry',exterier:'Exteriéry',dron:'Z výšky',all:'Celý výběr'};
+ galleryButtons.forEach(button=>button.addEventListener('click',()=>{
+  galleryButtons.forEach(x=>{const selected=x===button;x.classList.toggle('selected',selected);x.setAttribute('aria-pressed',String(selected))});
+  cards.forEach(x=>x.hidden=button.dataset.gallery!=='all'&&x.dataset.kind!==button.dataset.gallery);
+  const count=cards.filter(x=>!x.hidden).length;
+  document.querySelector('#gallery-count').textContent=nouns[button.dataset.gallery]+' · '+count+' fotografií';
+ }));
+ function show(){
+  const card=group[position],visual=card.classList.contains('visual-preview');
+  picture.src=card.dataset.full;picture.alt=card.querySelector('img').alt;
+  document.querySelector('#lightbox-title').textContent=visual?'Vizualizace návrhu':card.querySelector('span').textContent;
+  document.querySelector('#lightbox-kind').textContent=visual?'Obrazový návrh · není aktuální skutečný stav':'Skutečná fotografie · říjen 2026';
+  document.querySelector('#lightbox-count').textContent=(position+1)+' / '+group.length;
+ }
+ [...cards,...visuals].forEach(card=>card.addEventListener('click',()=>{
+  group=card.classList.contains('visual-preview')?[...card.closest('.visual-grid').querySelectorAll('.visual-preview')]:cards.filter(x=>!x.hidden);
+  position=group.indexOf(card);show();dialog.showModal();
+ }));
+ function step(delta){position=(position+delta+group.length)%group.length;show()}
+ document.querySelector('#lightbox-prev').addEventListener('click',()=>step(-1));
+ document.querySelector('#lightbox-next').addEventListener('click',()=>step(1));
+ document.querySelector('#lightbox-close').addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('keydown',event=>{if(event.key==='ArrowRight'){event.preventDefault();step(1)}if(event.key==='ArrowLeft'){event.preventDefault();step(-1)}});
+ dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close()}});
+ galleryButtons[0].click();
+}
 const floorButtons=[...document.querySelectorAll('[data-floor-button]')];if(floorButtons.length){const floorSelect=document.querySelector('#floor-filter');floorButtons.forEach(button=>button.addEventListener('click',()=>{const now=button.dataset.floorButton;floorSelect.value=floorSelect.value===now?'':now;floorSelect.dispatchEvent(new Event('input'));floorButtons.forEach(x=>x.classList.toggle('active',x.dataset.floorButton===floorSelect.value));document.querySelector('#unit-count').scrollIntoView({behavior:'smooth',block:'center'})}));floorSelect.addEventListener('input',()=>floorButtons.forEach(x=>x.classList.toggle('active',x.dataset.floorButton===floorSelect.value)))}
 
 if(location.hash==="#interiery")document.querySelector('[data-gallery="interier"]')?.click();
@@ -58,3 +87,6 @@ if(planDialog){
   document.querySelector('#unit-plan-close').addEventListener('click',()=>planDialog.close());
   planDialog.addEventListener('click',event=>{if(event.target===planDialog){const r=planDialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)planDialog.close()}});
 }
+
+document.querySelector('#unit-reset-top')?.addEventListener('click',()=>document.querySelector('#unit-reset').click());
+document.querySelector('#nav')?.addEventListener('keydown',event=>{if(event.key==='Escape'){document.querySelector('#nav').classList.remove('open');menu?.setAttribute('aria-expanded','false');menu?.focus()}});
