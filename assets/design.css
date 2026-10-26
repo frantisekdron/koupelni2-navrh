@@ -47,3 +47,6 @@ a,button,input,select,summary{-webkit-tap-highlight-color:transparent}:focus-vis
 .hero h1{letter-spacing:-.045em}h2,.page-top-photo h1{letter-spacing:-.045em}
 @media(max-width:950px){.filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.hero-photo{order:0}.hero-content.container{order:1}.hero-strip{order:2}}
+
+/* Approved FINAL FOTO composition, preserving complete house in the hero. */
+.hero-photo img{transform:none;object-position:50% 60%}

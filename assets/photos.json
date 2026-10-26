@@ -42,13 +42,6 @@
     "icc": true
   },
   {
-    "file": "assets/img/DSC00940.jpg",
-    "kind": "interier",
-    "width": 1800,
-    "height": 1201,
-    "icc": true
-  },
-  {
     "file": "assets/img/DSC00959.jpg",
     "kind": "interier",
     "width": 1800,
@@ -119,13 +112,6 @@
     "icc": true
   },
   {
-    "file": "assets/img/DSC00885.jpg",
-    "kind": "interier",
-    "width": 1800,
-    "height": 1199,
-    "icc": true
-  },
-  {
     "file": "assets/img/DSC00890.jpg",
     "kind": "interier",
     "width": 1800,
@@ -161,87 +147,213 @@
     "icc": true
   },
   {
-    "file": "assets/img/DSC00847.jpg",
+    "file": "assets/img/DSC00836-HDR.jpg",
     "kind": "exterier",
-    "width": 1800,
-    "height": 1216,
+    "width": 2200,
+    "height": 1467,
     "icc": true
   },
   {
-    "file": "assets/img/DSC00859.jpg",
+    "file": "assets/img/DSC00845-HDR.jpg",
     "kind": "exterier",
-    "width": 1800,
-    "height": 1207,
+    "width": 2200,
+    "height": 1467,
     "icc": true
   },
   {
-    "file": "assets/img/DSC00861.jpg",
+    "file": "assets/img/DSC00851-HDR.jpg",
     "kind": "exterier",
-    "width": 1800,
-    "height": 1365,
+    "width": 2200,
+    "height": 1467,
     "icc": true
   },
   {
-    "file": "assets/img/DSC00864.jpg",
+    "file": "assets/img/DSC00854-HDR.jpg",
     "kind": "exterier",
-    "width": 1800,
-    "height": 1238,
+    "width": 2200,
+    "height": 1467,
     "icc": true
   },
   {
-    "file": "assets/img/DSC00870.jpg",
+    "file": "assets/img/DSC00860-HDR.jpg",
     "kind": "exterier",
-    "width": 1800,
-    "height": 1365,
+    "width": 2200,
+    "height": 1467,
     "icc": true
   },
   {
-    "file": "assets/img/DJI_112222_0076_D-HDR.jpg",
-    "kind": "dron",
-    "width": 1800,
-    "height": 1350,
+    "file": "assets/img/DSC00863-HDR.jpg",
+    "kind": "exterier",
+    "width": 2200,
+    "height": 1467,
     "icc": true
   },
   {
-    "file": "assets/img/DJI_110613_0001_D-HDR.jpg",
-    "kind": "dron",
-    "width": 1800,
-    "height": 1350,
+    "file": "assets/img/DSC00866-HDR.jpg",
+    "kind": "exterier",
+    "width": 2200,
+    "height": 1467,
     "icc": true
   },
   {
-    "file": "assets/img/DJI_111206_0036_D-HDR.jpg",
-    "kind": "dron",
-    "width": 1800,
-    "height": 1350,
+    "file": "assets/img/DSC00872-HDR.jpg",
+    "kind": "exterier",
+    "width": 2200,
+    "height": 1467,
     "icc": true
   },
   {
-    "file": "assets/img/DJI_111621_0056_D-HDR.jpg",
-    "kind": "dron",
-    "width": 1800,
-    "height": 1350,
+    "file": "assets/img/DSC01020-HDR.jpg",
+    "kind": "exterier",
+    "width": 2200,
+    "height": 1467,
     "icc": true
   },
   {
-    "file": "assets/img/DJI_113208_0099_D-HDR.jpg",
+    "file": "assets/img/DJI_20261016111239_0041_D-HDR.jpg",
     "kind": "dron",
-    "width": 1800,
-    "height": 1350,
+    "width": 2200,
+    "height": 1650,
     "icc": true
   },
   {
-    "file": "assets/img/DJI_113332_0104_D-HDR.jpg",
+    "file": "assets/img/DJI_20261016111621_0056_D-HDR.jpg",
     "kind": "dron",
-    "width": 1800,
-    "height": 1350,
+    "width": 2200,
+    "height": 1650,
     "icc": true
   },
   {
-    "file": "assets/img/DJI_114011_0151_D-HDR.jpg",
+    "file": "assets/img/DJI_20261016111804_0061_D-HDR.jpg",
     "kind": "dron",
-    "width": 1800,
-    "height": 1350,
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016111820_0066_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016112105_0071_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016112222_0076_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016112638_0081_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016112823_0086_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016112844_0091_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016113208_0099_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016113332_0104_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016113356_0109_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016113702_0116_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016113725_0121_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016113755_0126_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016113841_0131_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016113858_0136_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016113924_0141_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016113947_0146_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016114011_0151_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
+    "icc": true
+  },
+  {
+    "file": "assets/img/DJI_20261016114114_0156_D-HDR.jpg",
+    "kind": "dron",
+    "width": 2200,
+    "height": 1650,
     "icc": true
   }
 ]
