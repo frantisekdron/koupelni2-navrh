@@ -1,57 +1,38 @@
 [
   {
-    "file": "assets/img/ATM_D01_0001__01_ranni_golden_hour.jpg",
+    "file": "assets/img/ATM_FINAL_01_Celni_fasada_soumrak_VIZUALIZACE.jpg",
     "kind": "atmosfera",
-    "source": "outputs/Hodonin_ATMOSFERY_FINAL/D01_0001__01_ranni_golden_hour.jpg",
-    "title": "D01 0001  01 ranni golden hour"
+    "source": "DJI_20261016113725_0121_D-HDR.jpg",
+    "title": "Čelní fasáda · soumrak",
+    "disclosure": "AI vizualizace navrhovaneho dokonceni, nikoli aktualni skutecny stav"
   },
   {
-    "file": "assets/img/ATM_D03_0036__04_realisticka_noc.jpg",
+    "file": "assets/img/ATM_FINAL_02_Vstupni_strana_teple_svetlo_VIZUALIZACE.jpg",
     "kind": "atmosfera",
-    "source": "outputs/Hodonin_ATMOSFERY_FINAL/D03_0036__04_realisticka_noc.jpg",
-    "title": "D03 0036  04 realisticka noc"
+    "source": "DJI_20261016112105_0071_D-HDR.jpg",
+    "title": "Vstupní strana · teplé odpoledne",
+    "disclosure": "AI vizualizace navrhovaneho dokonceni, nikoli aktualni skutecny stav"
   },
   {
-    "file": "assets/img/ATM_D03_0036__05_blue_hour.jpg",
+    "file": "assets/img/ATM_FINAL_03_Dum_v_meste_modra_hodina_VIZUALIZACE.jpg",
     "kind": "atmosfera",
-    "source": "outputs/Hodonin_ATMOSFERY_FINAL/D03_0036__05_blue_hour.jpg",
-    "title": "D03 0036  05 blue hour"
+    "source": "DJI_20261016111621_0056_D-HDR.jpg",
+    "title": "Dům ve městě · modrá hodina",
+    "disclosure": "AI vizualizace navrhovaneho dokonceni, nikoli aktualni skutecny stav"
   },
   {
-    "file": "assets/img/ATM_D05_0076__01_ranni_golden_hour.jpg",
+    "file": "assets/img/ATM_FINAL_04_Zahradni_strana_odpoledne_VIZUALIZACE.jpg",
     "kind": "atmosfera",
-    "source": "outputs/Hodonin_ATMOSFERY_FINAL/D05_0076__01_ranni_golden_hour.jpg",
-    "title": "D05 0076  01 ranni golden hour"
+    "source": "DSC00854-HDR.jpg",
+    "title": "Zahradní strana · podzimní odpoledne",
+    "disclosure": "AI vizualizace navrhovaneho dokonceni, nikoli aktualni skutecny stav"
   },
   {
-    "file": "assets/img/ATM_D05_0076__02_letni_odpoledne.jpg",
+    "file": "assets/img/ATM_FINAL_05_Vstup_z_ulice_vecer_VIZUALIZACE.jpg",
     "kind": "atmosfera",
-    "source": "outputs/Hodonin_ATMOSFERY_FINAL/D05_0076__02_letni_odpoledne.jpg",
-    "title": "D05 0076  02 letni odpoledne"
-  },
-  {
-    "file": "assets/img/ATM_P01_0854__05_blue_hour.jpg",
-    "kind": "atmosfera",
-    "source": "outputs/Hodonin_ATMOSFERY_FINAL/P01_0854__05_blue_hour.jpg",
-    "title": "P01 0854  05 blue hour"
-  },
-  {
-    "file": "assets/img/ATM_P02_0864__02_letni_odpoledne.jpg",
-    "kind": "atmosfera",
-    "source": "outputs/Hodonin_ATMOSFERY_FINAL/P02_0864__02_letni_odpoledne.jpg",
-    "title": "P02 0864  02 letni odpoledne"
-  },
-  {
-    "file": "assets/img/ATM_P02_0864__05_blue_hour.jpg",
-    "kind": "atmosfera",
-    "source": "outputs/Hodonin_ATMOSFERY_FINAL/P02_0864__05_blue_hour.jpg",
-    "title": "P02 0864  05 blue hour"
-  },
-  {
-    "file": "assets/img/ATM_P03_0870__04_realisticka_noc.jpg",
-    "kind": "atmosfera",
-    "source": "outputs/Hodonin_ATMOSFERY_FINAL/P03_0870__04_realisticka_noc.jpg",
-    "title": "P03 0870  04 realisticka noc"
+    "source": "DSC00863-HDR.jpg",
+    "title": "Vstup z ulice · večer",
+    "disclosure": "AI vizualizace navrhovaneho dokonceni, nikoli aktualni skutecny stav"
   },
   {
     "file": "assets/img/VIZ_Koupelni2_interier_2kk_01_vizualizace.jpg",
