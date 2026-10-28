@@ -89,3 +89,7 @@ img { max-width: 100%; }
   html { scroll-behavior: auto; }
   .choice { transition: none; }
 }
+
+/* Match the readable typography and control sizing of the revised previews. */
+body{font-size:17px}.choice-copy p{font-size:16px;line-height:1.65;min-height:6.5em;color:#405967}.choice-copy h2{font-weight:600;letter-spacing:-.025em}.choice-action{font-size:15px;min-height:48px}.back-link{font-size:14px;min-height:44px}.intro-note p+p{font-size:16px;line-height:1.65}.eyebrow{font-size:13px}.choice{border-color:#aebfc8;border-radius:4px;overflow:hidden}.intro h1{font-size:clamp(48px,5.4vw,78px);line-height:1.12;letter-spacing:-.045em}.footer-inner{font-size:14px}.footer-inner a{display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:700px){.choice-copy p{min-height:0}.intro h1{font-size:50px}.back-link{font-size:13px}.choice-body{padding:24px}.intro-note p+p{font-size:16px}}
