@@ -233,3 +233,8 @@ html[data-k2-variant] body.k2-update.k2-review .entry-content .k2-finance-option
 html[data-k2-variant] body.k2-update.k2-review .k2-sales-contact figure{float:none;margin:0}
 html[data-k2-variant] body.k2-update.k2-review .k2-sales-contact .wp-block-image{margin:0}
 html[data-k2-variant] body.k2-update.k2-review .page-main--contact .wp-block-spacer{height:24px!important}
+/* Client-selected B: readable standard specification, with no extra-cost floor tier. */
+html[data-k2-variant] .k2-review .k2-standard-update{padding:24px;background:#f2f6f6;border-left:3px solid #c7a32d;margin-block:25px}
+html[data-k2-variant] .k2-review .k2-standard-update h2{font:600 23px/1.3 Arial,sans-serif;color:#102b39;margin:25px 0 12px;letter-spacing:-.02em}
+html[data-k2-variant] .k2-review .k2-standard-update h2:first-child{margin-top:0}
+html[data-k2-variant] .k2-review .k2-standard-update p{color:#203e4c;font-size:17px;line-height:1.7}
