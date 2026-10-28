@@ -1,0 +1,38 @@
+/* B — quiet facade rhythm, yellow reveals and finely framed content. */
+html[data-k2-variant="b"] body.k2-update.k2-review{
+ --k2-facade-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='144' viewBox='0 0 192 144'%3E%3Cg fill='none' stroke='%231a4656' stroke-opacity='.065'%3E%3Cpath d='M16 16h40v52H16zM80 16h32v52H80zM136 16h40v52h-40zM16 92h40v52H16zM80 92h32v52H80zM136 92h40v52h-40z'/%3E%3C/g%3E%3Cpath d='M60 16v52M116 92v52' stroke='%23bc982d' stroke-opacity='.13' stroke-width='3'/%3E%3C/svg%3E");
+ --k2-facade-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='144'%3E%3Cg fill='none' stroke='%23b8d0d7' stroke-opacity='.065'%3E%3Cpath d='M16 16h40v52H16zM80 16h32v52H80zM136 16h40v52h-40zM16 92h40v52H16zM80 92h32v52H80zM136 92h40v52h-40z'/%3E%3C/g%3E%3Cpath d='M60 16v52M116 92v52' stroke='%23e5c44f' stroke-opacity='.12' stroke-width='3'/%3E%3C/svg%3E");
+ background:#fcfdfd;
+}
+html[data-k2-variant="b"] body.k2-update.k2-review .site-header{border-bottom:1px solid #49616a;box-shadow:0 5px 22px #082b370b}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-primary-nav a{transition:color .18s,text-decoration-color .18s;text-underline-offset:8px}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-primary-nav a:hover{color:#f0d16b;text-decoration:underline;text-decoration-thickness:1px}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-hero__copy{background-image:linear-gradient(90deg,#fff 24%,#ffffffc7 72%,#ffffff65),var(--k2-facade-light);background-position:center,right top;background-size:auto,192px 144px}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-hero h1{font-kerning:normal;text-wrap:balance}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-hero .k2-eyebrow::before{content:'';display:inline-block;width:24px;height:3px;background:#b18e23;vertical-align:middle;margin-right:12px}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-hero__photo{border:1px solid #23455226;box-shadow:0 16px 32px -24px #082b3760}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-proof{background-image:linear-gradient(90deg,#edf3f4 52%,#edf3f477),var(--k2-facade-light);border-block:1px solid #c4d3d7}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-proof__check{box-shadow:0 0 0 6px #ffffff80}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-section-heading{padding-top:20px;border-top:1px solid #c8d5d9;position:relative}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-section-heading::before{content:'';position:absolute;top:-1px;left:0;width:56px;height:3px;background:#b18e23}
+html[data-k2-variant="b"] body.k2-update.k2-review :is(.k2-inside__grid>a,.k2-standards-photos>a){border-radius:3px;box-shadow:0 10px 28px -22px #082b3770;transition:box-shadow .2s,border-color .2s}
+html[data-k2-variant="b"] body.k2-update.k2-review :is(.k2-inside__grid>a,.k2-standards-photos>a):hover{border-color:#a88a30;box-shadow:0 14px 30px -20px #082b3770}
+html[data-k2-variant="b"] body.k2-update.k2-review :is(.k2-film,.k2-floor-finder){background-color:#102f3d;background-image:linear-gradient(90deg,#102f3d 32%,#102f3d65),var(--k2-facade-dark);background-position:center,right center}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-vimeo-frame{outline:1px solid #b6c8cd66;outline-offset:5px;box-shadow:0 18px 40px #04121a35}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-floor-intro{background-image:linear-gradient(90deg,#fcfdfd 55%,#fcfdfd88),var(--k2-facade-light)}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-floor-links a{box-shadow:inset 0 1px #ffffff09;transition:background .18s,border-color .18s}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-button{border-radius:3px;box-shadow:0 4px 0 #9a7c2020;transition:background .18s,box-shadow .18s}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-button:hover{box-shadow:0 2px 0 #9a7c2035;background:#efd46d}
+html[data-k2-variant="b"] body.k2-update.k2-review :is(.k2-finance-option,.k2-standard-update){box-shadow:0 12px 30px -25px #082b3770;background-image:linear-gradient(90deg,#f2f6f6 70%,#f2f6f6b0),var(--k2-facade-light)}
+html[data-k2-variant="b"] body.k2-update.k2-review table.cenik{font-variant-numeric:tabular-nums}
+html[data-k2-variant="b"] body.k2-update.k2-review table.cenik tbody tr:hover{background:#f1f5f5}
+@media(max-width:600px){
+ html[data-k2-variant="b"] body.k2-update.k2-review .k2-hero__copy{background-image:linear-gradient(90deg,#fff 42%,#ffffffad),var(--k2-facade-light)}
+ html[data-k2-variant="b"] body.k2-update.k2-review .k2-proof{background-image:linear-gradient(90deg,#edf3f4 65%,#edf3f4ad),var(--k2-facade-light)}
+ html[data-k2-variant="b"] body.k2-update.k2-review .k2-standard-update{padding:22px 20px}
+}
+@media(prefers-reduced-motion:reduce){html[data-k2-variant="b"] body.k2-update.k2-review *{transition:none!important}}
+/* Selected design has no comparison toolbar: reclaim its former 44px offset. */
+html[data-k2-variant="b"] body.k2-update.k2-review{padding-top:0}
+html[data-k2-variant="b"] body.k2-update.k2-review .site-header{top:0}
+html[data-k2-variant="b"] body.k2-update.k2-review .k2-section-heading .k2-eyebrow{color:#405e68}

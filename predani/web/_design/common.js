@@ -31,7 +31,7 @@
       function update(){let n=0;rows.forEach(r=>{const show=(!select.value||r.cells[di].textContent.trim()===select.value)&&(!cb.checked||!!r.querySelector('.stav-volne'));r.hidden=!show;if(show)n++;});count.textContent=n+' z '+rows.length+' jednotek';empty.hidden=n>0;}
       select.addEventListener('change',update);cb.addEventListener('change',update);update();
     });
-    function rewrite(a){const raw=a.getAttribute('href');if(!raw||/^(mailto:|tel:|javascript:)/i.test(raw))return;let u=new URL(raw,location.href);if(u.origin==='https://koupelni.hireal.cz'&&!/\.[a-z\d]+$/i.test(u.pathname)){u=new URL(u.pathname.replace(/^\//,'')+u.search+u.hash,base);}if(u.origin===location.origin&&u.pathname.startsWith(base.pathname)&&!(/\.(?:jpg|jpeg|png|pdf|zip|mp4|svg|webp)$/i.test(u.pathname))){u.searchParams.set('verze',variant);u.searchParams.set('rev','3');a.href=u.href;}}
+    function rewrite(a){const raw=a.getAttribute('href');if(!raw||/^(mailto:|tel:|javascript:)/i.test(raw))return;let u=new URL(raw,location.href);if(u.origin==='https://koupelni.hireal.cz'&&!/\.[a-z\d]+$/i.test(u.pathname)){u=new URL(u.pathname.replace(/^\//,'')+u.search+u.hash,base);}if(u.origin===location.origin&&u.pathname.startsWith(base.pathname)&&!(/\.(?:jpg|jpeg|png|pdf|zip|mp4|svg|webp)$/i.test(u.pathname))){u.searchParams.set('verze',variant);u.searchParams.set('rev','4');a.href=u.href;}}
     document.querySelectorAll('a[href]').forEach(a=>{if(!a.closest('.k2-design-switch'))rewrite(a)});
     document.addEventListener('click',event=>{const a=event.target.closest('a[href]');if(a&&!a.closest('.k2-design-switch'))rewrite(a)});
     document.querySelectorAll('.k2-preview-note,.preview-status').forEach(n=>n.remove());
