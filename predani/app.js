@@ -208,6 +208,20 @@
   }
 
   function renderVideo(video) {
+    if (video?.vimeoId === "1240197567") {
+      const frame = document.querySelector(".video-frame");
+      frame.replaceChildren();
+      const iframe = document.createElement("iframe");
+      iframe.src = "https://player.vimeo.com/video/1240197567?h=cdd743aece&dnt=1&title=0&byline=0&portrait=0";
+      iframe.title = "Koupelní 2 — film o domě a okolí";
+      iframe.loading = "lazy"; iframe.allow = "autoplay; fullscreen; picture-in-picture"; iframe.allowFullscreen = true;
+      iframe.style.cssText = "width:100%;aspect-ratio:16/9;border:0;display:block";
+      frame.append(iframe);
+      document.querySelector("#film .feature-copy p:not(.eyebrow)").textContent = "Hotový film o domě a okolí. Přehrávání přes Vimeo včetně zvuku a celé obrazovky.";
+      $("#video-download").hidden = true;
+      $("#film").hidden = false; $("#nav-film").hidden = false;
+      return;
+    }
     if (video?.placeholder) {
       const frame = document.querySelector(".video-frame");
       frame.replaceChildren();

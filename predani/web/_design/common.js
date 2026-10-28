@@ -20,6 +20,7 @@
     document.querySelectorAll('.site-logo').forEach(a=>a.href=base.href);
     const apply=window['k2ApplyVariant'+variant.toUpperCase()];if(apply)apply();
     if(window.k2ReviewDesign)window.k2ReviewDesign(base,variant);
+    if(window.k2MountMedia)window.k2MountMedia(base);
     document.querySelectorAll('table.cenik').forEach(table=>{
       const heads=[...table.querySelectorAll('tr:first-child th')].map(x=>x.textContent.trim());const di=heads.indexOf('Dispozice');if(di<0)return;
       const rows=[...table.querySelectorAll('tr')].filter(r=>r.querySelector('td'));
