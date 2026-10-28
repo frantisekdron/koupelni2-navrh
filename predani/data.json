@@ -728,5 +728,9 @@
       "detail": "85 stran · PDF · 58 MB"
     }
   ],
-  "sitePreview": "web/index.html"
+  "sitePreview": "navrhy/",
+  "video": {
+    "placeholder": true,
+    "poster": "images/DJI_20261016113702_0116_D-HDR.jpg"
+  }
 }

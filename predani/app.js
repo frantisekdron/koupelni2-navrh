@@ -208,6 +208,19 @@
   }
 
   function renderVideo(video) {
+    if (video?.placeholder) {
+      const frame = document.querySelector(".video-frame");
+      frame.replaceChildren();
+      const poster = localUrl(video.poster);
+      if (poster) { const img = element("img"); img.src = poster; img.alt = "Dům Koupelní 2 — připravovaný film"; frame.append(img); }
+      frame.classList.add("video-placeholder");
+      frame.append(element("span", "video-placeholder-label", "Nový film připravujeme"));
+      document.querySelector("#film .feature-copy p:not(.eyebrow)").textContent = "Nový film o domě a jeho okolí doplníme po dokončení.";
+      $("#video-download").hidden = true;
+      $("#film").hidden = false;
+      $("#nav-film").hidden = false;
+      return;
+    }
     const src = localUrl(video?.src);
     if (!src) return;
     const player = $("#project-video");
