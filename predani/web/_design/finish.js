@@ -7,7 +7,7 @@
  document.body.classList.add('k2-finished');document.body.dataset.chapter=route.split('/')[0]||'home';
  const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n;};
  const link=(text,url,cls='k2-button')=>{const a=el('a',cls,text);a.href=url;return a;};
- const lightbox=img=>{if(img.closest('a'))return;const a=link('',img.currentSrc||img.src,'k2-plan-link');a.dataset.lightbox='plans';a.setAttribute('aria-label','Zvětšit: '+(img.alt||'plán'));img.before(a);a.append(img);};
+ const lightbox=img=>{if(img.closest('a'))return;const a=link('',img.src||img.currentSrc,'k2-plan-link');a.dataset.lightbox='plans';a.setAttribute('aria-label','Zvětšit: '+(img.alt||'plán'));img.before(a);a.append(img);};
  // The inherited slider requires WordPress JS; render its actual images as a gallery instead.
  main.querySelectorAll('.wp-block-themeisle-blocks-slider').forEach(slider=>{const gallery=el('div','k2-render-grid');const seen=new Set();slider.querySelectorAll('img').forEach(img=>{if(seen.has(img.src))return;seen.add(img.src);img.removeAttribute('style');img.removeAttribute('sizes');img.loading='lazy';const f=el('figure');img.className='';f.append(img);lightbox(img);gallery.append(f);});slider.replaceWith(gallery);});
  main.querySelectorAll('.wp-block-spacer, .wp-lightbox-container>button').forEach(n=>n.remove());
