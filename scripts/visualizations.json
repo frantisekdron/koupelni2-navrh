@@ -1,0 +1,56 @@
+{
+  "interiors": [
+    {
+      "file": "interiors-1.jpg",
+      "original": "Koupelni2_interier_2kk_01_vizualizace.jpg",
+      "label": "2+kk · ložnice"
+    },
+    {
+      "file": "interiors-2.jpg",
+      "original": "Koupelni2_interier_2kk_02_vizualizace.jpg",
+      "label": "2+kk · kuchyně a jídelna"
+    },
+    {
+      "file": "interiors-3.jpg",
+      "original": "Koupelni2_interier_3kk_01_vizualizace.jpg",
+      "label": "3+kk · dětský pokoj"
+    },
+    {
+      "file": "interiors-4.jpg",
+      "original": "Koupelni2_interier_3kk_02_vizualizace.jpg",
+      "label": "3+kk · kuchyně s obytným prostorem"
+    },
+    {
+      "file": "interiors-5.jpg",
+      "original": "Koupelni2_interier_4kk_02_vizualizace.jpg",
+      "label": "4+kk · obytný prostor"
+    }
+  ],
+  "exteriors": [
+    {
+      "file": "exteriors-1.jpg",
+      "original": "01_Celni_fasada_soumrak_VIZUALIZACE.jpg",
+      "label": "Čelní fasáda za soumraku"
+    },
+    {
+      "file": "exteriors-2.jpg",
+      "original": "02_Vstupni_strana_teple_svetlo_VIZUALIZACE.jpg",
+      "label": "Vstupní strana v teplém světle"
+    },
+    {
+      "file": "exteriors-3.jpg",
+      "original": "03_Dum_v_meste_modra_hodina_VIZUALIZACE.jpg",
+      "label": "Dům ve městě za modré hodiny"
+    },
+    {
+      "file": "exteriors-4.jpg",
+      "original": "04_Zahradni_strana_odpoledne_VIZUALIZACE.jpg",
+      "label": "Zahradní strana odpoledne"
+    },
+    {
+      "file": "exteriors-5.jpg",
+      "original": "05_Vstup_z_ulice_vecer_VIZUALIZACE.jpg",
+      "label": "Večerní pohled od ulice"
+    }
+  ]
+}
