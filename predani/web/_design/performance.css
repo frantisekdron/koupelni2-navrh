@@ -1,0 +1,34 @@
+/* Native video stays visible even while deferred scripts are still loading. */
+.k2-hero--video-first .k2-hero-video[data-native-hero]{opacity:1!important}
+.k2-image-filters{position:absolute;width:0;height:0;pointer-events:none;overflow:hidden}
+.k2-architectural-image{filter:url(#k2-architectural-colors)}
+body.k2-finished #k2-main-content .chapter-parking-site .k2-parking-plan{grid-template-columns:minmax(0,1.5fr) minmax(240px,.8fr);padding:0;border:1px solid #b9c9ce;box-shadow:0 16px 46px #10313f0a;overflow:hidden;background:#fff}
+body.k2-finished #k2-main-content .chapter-parking-site .k2-parking-plan>a{display:grid;place-items:center;background:#fff;padding:24px}
+body.k2-finished #k2-main-content .chapter-parking-site .k2-parking-plan img{height:auto;max-height:480px;width:100%;object-fit:contain}
+body.k2-finished #k2-main-content .chapter-parking-site figcaption{align-self:stretch;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;background:#10313f;color:#fff;padding:36px!important;border-left:3px solid #e5c44f}
+body.k2-finished #k2-main-content .chapter-parking-site figcaption strong{font-size:30px;color:#fff}
+body.k2-finished #k2-main-content .chapter-parking-site figcaption p{color:#d4e1e4}
+body.k2-finished #k2-main-content .chapter-parking-site figcaption a{color:#fff!important;border-color:#8da5ad!important;background:transparent}
+body.k2-finished #k2-main-content .k2-architecture-viewer{display:grid;grid-template-columns:minmax(0,1fr) 200px;border:1px solid #31545e;border-radius:6px;overflow:hidden;background:#10313f;box-shadow:0 18px 48px #10313f12}
+body.k2-finished #k2-main-content .k2-architecture-viewer .chapter-garage-stage{margin:0;padding:20px;background:#f6f8f7;border:0;border-radius:0;display:block}
+body.k2-finished #k2-main-content .k2-architecture-viewer .chapter-garage-stage figure{border:0;background:#fff;border-radius:3px}
+body.k2-finished #k2-main-content .k2-architecture-viewer .chapter-garage-stage img{height:auto;max-height:430px;aspect-ratio:16/10;width:100%;object-fit:contain}
+body.k2-finished #k2-main-content .k2-architecture-viewer .chapter-view-tabs{margin:0;padding:18px;display:flex;flex-direction:column;gap:12px;justify-content:center}
+body.k2-finished #k2-main-content .k2-architecture-viewer .chapter-view-tabs button{display:block;padding:0;overflow:hidden;border:1px solid #63828b;background:#173c48;color:#fff;border-radius:3px;min-width:0;text-align:left}
+body.k2-finished #k2-main-content .k2-architecture-viewer .chapter-view-tabs button[aria-selected="true"]{border-color:#e5c44f;box-shadow:0 0 0 1px #e5c44f;background:#e5c44f;color:#10313f}
+body.k2-finished #k2-main-content .k2-architecture-viewer .chapter-view-tabs img{width:100%;height:77px;object-fit:contain;background:#fff;display:block}
+body.k2-finished #k2-main-content .k2-architecture-viewer .chapter-view-tabs span{display:block;padding:10px 12px;font-size:13px;line-height:1.35}
+body.k2-finished[data-chapter="flats"] #k2-main-content .k2-render-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+body.k2-finished[data-chapter="flats"] #k2-main-content .k2-render-grid img{height:210px;max-height:210px;object-fit:contain;aspect-ratio:auto;padding:8px}
+body.k2-finished #k2-main-content .k2-unit-plan img{max-height:500px;width:100%;object-fit:contain}
+.k2-film-player{position:relative;aspect-ratio:16/9;background:#10313f;overflow:hidden}
+.k2-film-cover{display:block;border:0;padding:0;width:100%;height:100%;position:absolute;inset:0;cursor:pointer;text-align:left;color:#fff;background:#10313f;font-family:inherit}
+.k2-film-cover>img{width:100%;height:100%;object-fit:cover;display:block}
+.k2-film-cover:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#031c2b66 0,transparent 42%,#031c2bba 100%);pointer-events:none}
+.k2-film-brand{position:absolute;z-index:1;top:7%;left:5%;font:400 clamp(18px,3.3vw,40px)/1.2 Arial,sans-serif;letter-spacing:.025em;color:#fff}
+.k2-film-brand b{background:#e5c44f;color:#102e3a;padding:0 .13em;margin-left:.1em}.k2-film-brand i{color:#e5c44f;font-style:normal;font-weight:800}
+.k2-film-play{position:absolute;z-index:1;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(54px,7vw,86px);aspect-ratio:1;border:1px solid #ffffffb3;border-radius:50%;display:grid;place-items:center;background:#10313fbb;backdrop-filter:blur(8px);transition:background .2s,transform .2s}
+.k2-film-play svg{width:30%;fill:#e5c44f;margin-left:3px}.k2-film-cover:hover .k2-film-play{background:#10313f;transform:translate(-50%,-50%) scale(1.05)}
+.k2-film-caption{position:absolute;z-index:1;left:5%;bottom:7%;display:grid;gap:7px}.k2-film-caption strong{font:400 clamp(20px,3vw,36px)/1.2 Georgia,serif;color:#fff}.k2-film-caption>span{font-size:clamp(11px,1.4vw,15px);color:#ecf0f1}
+@media(max-width:767px){body.k2-finished #k2-main-content .chapter-parking-site .k2-parking-plan{grid-template-columns:1fr}body.k2-finished #k2-main-content .chapter-parking-site .k2-parking-plan>a{padding:12px}body.k2-finished #k2-main-content .chapter-parking-site figcaption{padding:24px!important;border-left:0;border-top:3px solid #e5c44f}body.k2-finished #k2-main-content .k2-architecture-viewer{grid-template-columns:1fr}body.k2-finished #k2-main-content .k2-architecture-viewer .chapter-view-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:12px;gap:10px}body.k2-finished #k2-main-content .k2-architecture-viewer .chapter-garage-stage{padding:10px}body.k2-finished #k2-main-content .k2-architecture-viewer .chapter-view-tabs span{font-size:11px;padding:8px}body.k2-finished #k2-main-content .k2-architecture-viewer .chapter-view-tabs img{height:58px}.k2-film-caption{bottom:6%}}
+@media(prefers-reduced-motion:reduce){.k2-film-play{transition:none}}

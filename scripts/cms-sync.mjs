@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {present,presentationRevision} from './presentation.mjs';
+import {optimizeRuntime} from './performance.mjs';
 const origin='https://koupelni-sprava.frantisekdron.chatgpt.site';
 const token=process.env.KOUPELNI_CMS_TOKEN;
 if(!token)throw new Error('Missing CMS service credential');
@@ -20,6 +21,6 @@ for(const p of data.pages){if(typeof p.path!=='string'||p.path.includes('..')||p
 await fs.mkdir(path.join(root,'_cms/files'),{recursive:true});
 for(const id of uploaded){const target=path.join(root,'_cms/files',id);try{await fs.access(target);continue;}catch{}const r=await fetch(origin+'/files/'+id,{headers});if(!r.ok)throw new Error('Media download failed '+r.status);const bytes=new Uint8Array(await r.arrayBuffer());if(bytes.length>25*1024*1024)throw new Error('Unexpected media size');await fs.writeFile(target,bytes);}
 for(const p of data.pages){const target=path.join(root,p.path);await fs.mkdir(path.dirname(target),{recursive:true});await fs.writeFile(target,present(fixUrls(p.html),p.path,data.pages));}
-await fs.writeFile(path.join(root,'_cms/site-runtime.js'),data.runtime);
+await fs.writeFile(path.join(root,'_cms/site-runtime.js'),optimizeRuntime(data.runtime));
 await fs.writeFile(versionFile,JSON.stringify({fingerprint:data.fingerprint,presentationRevision,publishedAt:new Date().toISOString()},null,2)+'\n');
 if(process.env.GITHUB_OUTPUT)await fs.appendFile(process.env.GITHUB_OUTPUT,'changed=true\n');console.log('Updated '+data.pages.length+' pages and '+uploaded.size+' uploaded files');

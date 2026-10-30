@@ -1,13 +1,17 @@
 import fs from 'node:fs';
+import {optimizeMarkup, heroMarkup, filmCoverMarkup} from './performance.mjs';
 const building=fs.readFileSync(new URL('../predani/web/_design/building.svg',import.meta.url),'utf8');
 const aliases=JSON.parse(fs.readFileSync(new URL('./unit-aliases.json',import.meta.url),'utf8'));
 const visuals=JSON.parse(fs.readFileSync(new URL('./visualizations.json',import.meta.url),'utf8'));
-export const presentationRevision='20261031-sales-1';
+export const presentationRevision='20261031-performance-1';
 export function present(html,pagePath,sourcePages){
  const base='/koupelni2-navrh/predani/web/';
  if(pagePath==='index.html'){
   html=html.replace('class="k2-hero"','class="k2-hero k2-hero--video-first"');
   if(!html.includes('data-k2-hero-video'))html=html.replace('</head>',`<link data-k2-hero-video rel="stylesheet" href="${base}_design/hero-video.css?v=20261031-1"></head>`).replace('</body>',`<script src="${base}_design/hero-video.js?v=20261031-1" defer></script></body>`);
+  html=html.replace(/<video\b[^>]*class="k2-hero-video"[^>]*>[\s\S]*?<\/video>/,old=>heroMarkup(base,old));
+  html=html.replace(/(hero-video\.(?:css|js)\?v=)[^"']+/g,'$1'+presentationRevision);
+  html=html.replace(/<div class="k2-vimeo-frame[^"]*"[^>]*>[\s\S]*?<\/div>/,old=>filmCoverMarkup(base,old));
  }
  html=html.replaceAll('https://koupelni.hireal.cz/wp-content/uploads/2026/03/STANDARDY_new-new-05032026.pdf','https://frantisekdron.github.io/koupelni2-navrh/predani/downloads/Koupelni_2_katalog_standardu.pdf').replaceAll('>STANDARDY</a>','>Stáhnout katalog standardů · PDF</a>');
  html=html.replaceAll('https://frantisekdron.github.io/wp-content/','https://koupelni.hireal.cz/wp-content/').replaceAll('https://frantisekdron.github.io//maps.googleapis.com','https://maps.googleapis.com').replaceAll('https://frantisekdron.github.io/site.webmanifest',base+'site.webmanifest');
@@ -33,5 +37,7 @@ export function present(html,pagePath,sourcePages){
  if(!html.includes('data-k2-presentation'))html=html.replace('</head>',`<link data-k2-presentation rel="stylesheet" href="${base}_design/finish.css?v=${presentationRevision}"></head>`).replace('</body>',`<script src="${base}_design/finish.js?v=${presentationRevision}" defer></script></body>`);
  if(!html.includes('data-k2-chapters'))html=html.replace('</head>',`<link data-k2-chapters rel="stylesheet" href="${base}_design/chapters.css?v=${presentationRevision}"></head>`).replace('</body>',`<script src="${base}_design/chapters.js?v=${presentationRevision}" defer></script></body>`);
  html=html.replaceAll('https://koupelni.hireal.cz/flats/',base+'flats/');for(const [from,to] of Object.entries(aliases))html=html.replaceAll(from,to);
+ html=html.replace(/(_cms\/site-runtime\.js)(?:\?v=[^"']*)?/g,'$1?v='+presentationRevision);
+ html=optimizeMarkup(html,pagePath);
  return html.replace(/[ \t]+\n/g,'\n');
 }

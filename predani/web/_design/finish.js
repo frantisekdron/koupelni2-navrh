@@ -7,9 +7,9 @@
  document.body.classList.add('k2-finished');document.body.dataset.chapter=route.split('/')[0]||'home';
  const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n;};
  const link=(text,url,cls='k2-button')=>{const a=el('a',cls,text);a.href=url;return a;};
- const lightbox=img=>{if(img.closest('a'))return;const a=link('',img.src||img.currentSrc,'k2-plan-link');a.dataset.lightbox='plans';a.setAttribute('aria-label','Zvětšit: '+(img.alt||'plán'));img.before(a);a.append(img);};
+ const lightbox=img=>{if(img.closest('a'))return;const a=link('',img.dataset.fullSrc||img.src||img.currentSrc,'k2-plan-link');a.dataset.lightbox='plans';a.setAttribute('aria-label','Zvětšit: '+(img.alt||'plán'));img.before(a);a.append(img);};
  // The inherited slider requires WordPress JS; render its actual images as a gallery instead.
- main.querySelectorAll('.wp-block-themeisle-blocks-slider').forEach(slider=>{const gallery=el('div','k2-render-grid');const seen=new Set();slider.querySelectorAll('img').forEach(img=>{if(seen.has(img.src))return;seen.add(img.src);img.removeAttribute('style');img.removeAttribute('sizes');img.loading='lazy';const f=el('figure');img.className='';f.append(img);lightbox(img);gallery.append(f);});slider.replaceWith(gallery);});
+ main.querySelectorAll('.wp-block-themeisle-blocks-slider').forEach(slider=>{const gallery=el('div','k2-render-grid');const seen=new Set();slider.querySelectorAll('img').forEach(img=>{if(seen.has(img.src))return;seen.add(img.src);img.removeAttribute('style');img.loading='lazy';const f=el('figure');img.className='';f.append(img);lightbox(img);gallery.append(f);});slider.replaceWith(gallery);});
  main.querySelectorAll('.wp-block-spacer, .wp-lightbox-container>button').forEach(n=>n.remove());
  main.querySelectorAll('p,h2,h3').forEach(n=>{if(!n.textContent.trim()&&!n.querySelector('img,input,iframe,svg'))n.remove();});
  main.querySelectorAll('a[href$=".pdf"]').forEach(a=>{a.classList.add('k2-document-link');a.setAttribute('target','_blank');a.setAttribute('rel','noopener');});
@@ -27,7 +27,7 @@
   main.querySelectorAll('.k2-unit-support img').forEach(lightbox);
   const render=main.querySelector('.k2-render-grid img'),hero=main.querySelector('.k2-page-header figure'),heroImg=hero?.querySelector('img');
   const source=render||main.querySelector('.floor_image img');
-  if(source&&heroImg){hero.classList.add('k2-unit-hero');heroImg.src=source.src;heroImg.removeAttribute('srcset');heroImg.removeAttribute('sizes');heroImg.alt=(render?'Prostorová vizualizace — ':'Půdorys — ')+document.querySelector('h1').textContent.trim();heroImg.style.objectPosition='center';hero.querySelector('figcaption').textContent=render?'Prostorová vizualizace jednotky':'Půdorys jednotky';lightbox(heroImg);}
+  if(source&&heroImg){hero.classList.add('k2-unit-hero');heroImg.src=source.src;for(const key of ['srcset','sizes','width','height','data-full-src','data-original-src']){if(source.hasAttribute(key))heroImg.setAttribute(key,source.getAttribute(key));else heroImg.removeAttribute(key);}heroImg.sizes='(max-width: 767px) 100vw, 800px';heroImg.alt=(render?'Prostorová vizualizace — ':'Půdorys — ')+document.querySelector('h1').textContent.trim();heroImg.style.objectPosition='center';hero.querySelector('figcaption').textContent=render?'Prostorová vizualizace jednotky':'Půdorys jednotky';lightbox(heroImg);}
   const rows=[...main.querySelectorAll('.k2-unit-facts tr')];const get=label=>rows.find(r=>r.cells[0]?.textContent.trim()===label)?.cells[1]?.textContent.trim();
   const h1=main.querySelector('h1'),meta=el('div','k2-unit-hero-meta');[get('Dispozice'),get('Podlaží'),get('Plocha (čistá)')].filter(Boolean).forEach(v=>meta.append(el('span','',v)));h1?.after(meta);
   const floorText=get('Podlaží')||'',n=/\d/.test(floorText)?(/(?:1S|PP|suter)/i.test(floorText)?'0':floorText.match(/\d+/)[0]):null;

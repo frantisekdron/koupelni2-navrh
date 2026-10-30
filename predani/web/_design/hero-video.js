@@ -1,52 +1,24 @@
-/* Reattach playback to CMS-rendered markup, including after returning to a tab. */
-(() => {
-  const video = document.querySelector('.k2-hero--video-first .k2-hero-video');
-  const button = document.querySelector('.k2-hero--video-first .k2-video-toggle');
-  if (!video || !button) return;
-  const figure = video.closest('figure');
-  const motion = matchMedia('(prefers-reduced-motion: reduce)');
-  const connection = navigator.connection;
-  const restricted = () => motion.matches || connection?.saveData || ['slow-2g', '2g'].includes(connection?.effectiveType);
-  const inView = () => { const r = figure.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
-  let userPaused = false, manualPlay = false, resizeTimer;
-  const originalSource = video.getAttribute('src');
-  video.muted = video.defaultMuted = true;
-  video.playsInline = true;
-  video.setAttribute('muted', '');
-  video.setAttribute('playsinline', '');
-  video.setAttribute('webkit-playsinline', '');
-  video.preload = restricted() ? 'none' : 'metadata';
-
-  function source() {
-    if (!/hero-v7-(desktop|tablet|mobile)\.mp4/.test(originalSource)) return;
-    const size = innerWidth < 640 ? 'mobile' : innerWidth < 1100 ? 'tablet' : 'desktop';
-    const next = originalSource.replace(/hero-v7-(desktop|tablet|mobile)\.mp4/, 'hero-v7-' + size + '.mp4');
-    if (new URL(next, location.href).href !== video.src) video.src = next;
-  }
-  function label() {
-    button.textContent = video.paused ? 'Přehrát video' : 'Pozastavit';
-    button.setAttribute('aria-label', video.paused ? 'Přehrát úvodní video bez zvuku' : 'Pozastavit úvodní video');
-  }
-  function resume() {
-    if (userPaused || document.hidden || !inView() || (restricted() && !manualPlay)) return;
-    source();
-    video.muted = true;
-    video.play().catch(label); // Browser autoplay restrictions retain the usable play button.
-  }
-  video.onplaying = () => { figure.classList.add('is-playing'); label(); };
-  video.onpause = label;
-  video.onerror = () => { figure.classList.remove('is-playing'); label(); };
-  button.onclick = () => {
-    if (video.paused) { userPaused = false; manualPlay = true; resume(); }
-    else { userPaused = true; video.pause(); }
-  };
-  source();
-  video.autoplay = !restricted();
-  if (restricted()) video.pause(); else resume();
-  new IntersectionObserver(() => { if (inView()) resume(); else video.pause(); }, {threshold: 0}).observe(figure);
-  document.addEventListener('visibilitychange', () => { if (document.hidden) video.pause(); else resume(); });
-  window.addEventListener('pageshow', resume);
-  motion.addEventListener('change', () => { if (restricted()) { manualPlay = false; video.pause(); } else resume(); });
-  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { source(); resume(); }, 200); });
-  label();
+/* Native muted autoplay starts before site scripts; this controller only adds controls/resume. */
+(()=>{
+ const v=document.querySelector('[data-native-hero]'),b=document.querySelector('.k2-video-toggle');if(!v||!b)return;
+ const figure=v.closest('figure'),motion=matchMedia('(prefers-reduced-motion: reduce)');
+ let pausedByUser=false,manual=false;
+ const restricted=()=>motion.matches||navigator.connection?.saveData;
+ const visible=()=>{const r=figure.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight;};
+ const label=()=>{b.textContent=v.paused?'Přehrát video':'Pozastavit';b.setAttribute('aria-label',v.paused?'Přehrát úvodní video bez zvuku':'Pozastavit úvodní video');};
+ function play(){
+  if(pausedByUser||document.hidden||!visible()||(restricted()&&!manual))return;
+  v.muted=v.defaultMuted=true;
+  if(!v.currentSrc&&!v.getAttribute('src')){const size=innerWidth<640?'mobile':innerWidth<1100?'tablet':'desktop';v.src=[...v.querySelectorAll('source')].find(s=>s.src.includes(size))?.src||v.querySelector('source').src;}
+  v.play().catch(label);
+ }
+ v.addEventListener('playing',()=>{figure.classList.add('is-playing');label();});v.addEventListener('pause',label);
+ v.addEventListener('error',label);
+ b.onclick=()=>{if(v.paused){pausedByUser=false;manual=true;play();}else{pausedByUser=true;v.pause();}};
+ if(restricted()){v.autoplay=false;v.pause();}else play();
+ if(!v.paused)figure.classList.add('is-playing');label();
+ new IntersectionObserver(()=>visible()?play():v.pause(),{threshold:0}).observe(figure);
+ document.addEventListener('visibilitychange',()=>document.hidden?v.pause():play());
+ window.addEventListener('pageshow',play);
+ motion.addEventListener('change',()=>{if(restricted()){manual=false;v.pause();}else play();});
 })();
