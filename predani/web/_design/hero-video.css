@@ -1,0 +1,23 @@
+/* The approved film opens the page; the existing B typography follows it. */
+html[data-k2-variant="b"] body.k2-update.k2-review.home .k2-hero--video-first {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto;
+}
+html[data-k2-variant="b"] body.k2-update.k2-review.home .k2-hero--video-first .k2-hero__photo.k2-video-figure {
+  grid-column: 1; grid-row: 1;
+  width: 100%; height: clamp(360px, 57vw, 640px);
+  max-height: 70svh; min-height: 280px;
+  margin: 0; aspect-ratio: auto; border: 0; box-shadow: none;
+}
+html[data-k2-variant="b"] body.k2-update.k2-review.home .k2-hero--video-first .k2-hero__copy {
+  grid-column: 1; grid-row: 2;
+  padding-top: 40px; padding-bottom: 40px;
+}
+html[data-k2-variant="b"] body.k2-update.k2-review.home .k2-hero--video-first .k2b-city { display: none; }
+html[data-k2-variant="b"] body.k2-update.k2-review.home .k2-hero--video-first .k2-hero-video { object-position: center; }
+@media (max-width: 767px) {
+  html[data-k2-variant="b"] body.k2-update.k2-review.home .k2-hero--video-first .k2-hero__photo.k2-video-figure {
+    height: auto; min-height: 0; max-height: none; aspect-ratio: 4 / 3;
+  }
+  html[data-k2-variant="b"] body.k2-update.k2-review.home .k2-hero--video-first .k2-hero__copy { padding: 28px 24px 34px; }
+}

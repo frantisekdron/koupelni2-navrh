@@ -128,10 +128,10 @@ body.k2-finished .k2-full-copy>summary{font:600 13px/1.6 Arial;cursor:pointer;co
  body.k2-finished #k2-main-content .k2-sales-contact{grid-template-columns:100px 1fr;padding:16px;gap:16px}body.k2-finished #k2-main-content .k2-sales-contact img{width:100px!important;height:125px!important}
  body.k2-finished #k2-main-content .wp-block-media-text__media{grid-column:1;grid-row:1}body.k2-finished #k2-main-content .wp-block-media-text__content{grid-column:1;grid-row:2}
  body.k2-finished #k2-main-content .k2-spec-row{padding-block:26px}body.k2-finished #k2-main-content .k2-spec-row h2{font-size:26px}body.k2-finished #k2-main-content .k2-standard-update{padding:22px}
- html[data-k2-variant="b"] body.k2-finished .k2-floor-finder{grid-template-columns:1fr;padding:36px 20px;gap:24px}
+ html[data-k2-variant="b"] body.k2-finished .k2-floor-finder{grid-template-columns:minmax(0,1fr);padding:36px 20px;gap:24px}
  html[data-k2-variant="b"] body.k2-finished .k2-floor-finder .section-inteactive{grid-row:1}
  html[data-k2-variant="b"] body.k2-finished .k2-floor-finder svg{min-height:230px}
- html[data-k2-variant="b"] body.k2-finished .k2-floor-finder .k2-floor-links{grid-template-columns:repeat(4,1fr)}
+ html[data-k2-variant="b"] body.k2-finished .k2-floor-finder .k2-floor-links{grid-template-columns:repeat(auto-fit,minmax(70px,1fr))}
  html[data-k2-variant="b"] body.k2-finished .k2-floor-finder .k2-floor-links a{padding:9px;font-size:10px}
  html[data-k2-variant="b"] body.k2-finished .k2-floor-finder .k2-floor-links strong{font-size:10px}
 }

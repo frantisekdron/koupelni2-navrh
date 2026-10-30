@@ -2,9 +2,13 @@ import fs from 'node:fs';
 const building=fs.readFileSync(new URL('../predani/web/_design/building.svg',import.meta.url),'utf8');
 const aliases=JSON.parse(fs.readFileSync(new URL('./unit-aliases.json',import.meta.url),'utf8'));
 const visuals=JSON.parse(fs.readFileSync(new URL('./visualizations.json',import.meta.url),'utf8'));
-export const presentationRevision='20261030-design-4';
+export const presentationRevision='20261031-hero-1';
 export function present(html,pagePath,sourcePages){
  const base='/koupelni2-navrh/predani/web/';
+ if(pagePath==='index.html'){
+  html=html.replace('class="k2-hero"','class="k2-hero k2-hero--video-first"');
+  if(!html.includes('data-k2-hero-video'))html=html.replace('</head>',`<link data-k2-hero-video rel="stylesheet" href="${base}_design/hero-video.css?v=20261031-1"></head>`).replace('</body>',`<script src="${base}_design/hero-video.js?v=20261031-1" defer></script></body>`);
+ }
  html=html.replaceAll('https://koupelni.hireal.cz/wp-content/uploads/2026/03/STANDARDY_new-new-05032026.pdf','https://frantisekdron.github.io/koupelni2-navrh/predani/downloads/Koupelni_2_katalog_standardu.pdf').replaceAll('>STANDARDY</a>','>Stáhnout katalog standardů · PDF</a>');
  html=html.replaceAll('https://frantisekdron.github.io/wp-content/','https://koupelni.hireal.cz/wp-content/').replaceAll('https://frantisekdron.github.io//maps.googleapis.com','https://maps.googleapis.com').replaceAll('https://frantisekdron.github.io/site.webmanifest',base+'site.webmanifest');
  html=html.replace(/http:\/\/(?:127\.0\.0\.1|localhost):\d+\/pudorysy\//g,base+'pudorysy/').replaceAll('https://koupelni.hireal.cz/flats/',base+'flats/');
