@@ -3,6 +3,20 @@
 const e=(tag,cls,text)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(text)x.textContent=text;return x;},a=(label,url,cls='k2-button')=>{const x=e('a',cls,label);x.href=url;return x;};
 const fullText=block=>block.querySelector('.k2-full-copy p')?.textContent.trim()||block.querySelector('p')?.textContent.trim()||block.textContent.trim();
 const disclosure=(title,content)=>{const d=e('details','chapter-disclosure');d.append(e('summary','',title),content);return d;};
+if(route===''){
+ const sales=main.querySelector('.k2-sales'),hero=main.querySelector('.k2-hero');
+ if(sales&&hero){
+  const parts=sales.innerHTML.split(/<hr\b[^>]*>/i).map(html=>{const t=document.createElement('template');t.innerHTML=html;return t.content.textContent.replace(/\s+/g,' ').trim();});
+  const current=parts[1]?.match(/^(II\.\s*etapa prodeje)\s*[-–—]\s*(zahájena)\s*,\s*(k nastěhování)\s*(.+)$/i);
+  if(parts.length===2&&current){
+   sales.classList.add('chapter-sales');sales.setAttribute('role','region');sales.setAttribute('aria-label','Aktuální etapy prodeje');
+   const active=e('div','chapter-sales-active');active.append(e('p','chapter-sales-label','Právě v prodeji'),e('h2','',current[1]),e('span','chapter-sales-badge',current[2]),a('Prohlédnout nabídku ↗',base+'#pudorysy','chapter-sales-link'));
+   const date=e('div','chapter-sales-date');date.append(e('p','chapter-sales-label',current[3]),e('p','chapter-sales-value',current[4]));
+   const previous=e('div','chapter-sales-previous');previous.append(e('span','chapter-sales-check','✓'),e('p','',parts[0]));
+   sales.replaceChildren(active,date,previous);hero.after(sales);
+  }
+ }
+}
 if(route==='o-projektu'){
  const root=main.querySelector('.container-width-content');if(!root)return;const blocks=[...root.querySelectorAll(':scope>.wp-block-media-text')],texts=blocks.map(fullText);if(blocks.length<10)return;
  const archive=e('div','chapter-original');blocks.forEach(b=>archive.append(e('p','',fullText(b))));[...root.querySelectorAll(':scope>p')].forEach(p=>archive.append(p.cloneNode(true)));
