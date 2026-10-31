@@ -11,7 +11,7 @@
  // The inherited slider requires WordPress JS; render its actual images as a gallery instead.
  main.querySelectorAll('.wp-block-themeisle-blocks-slider').forEach(slider=>{const gallery=el('div','k2-render-grid');const seen=new Set();slider.querySelectorAll('img').forEach(img=>{if(seen.has(img.src))return;seen.add(img.src);img.removeAttribute('style');img.loading='lazy';const f=el('figure');img.className='';f.append(img);lightbox(img);gallery.append(f);});slider.replaceWith(gallery);});
  main.querySelectorAll('.wp-block-spacer, .wp-lightbox-container>button').forEach(n=>n.remove());
- main.querySelectorAll('p,h2,h3').forEach(n=>{if(!n.textContent.trim()&&!n.querySelector('img,input,iframe,svg'))n.remove();});
+ main.querySelectorAll('p,h2,h3').forEach(n=>{if(!n.id&&!n.hasAttribute('role')&&!n.hasAttribute('aria-live')&&!n.textContent.trim()&&!n.querySelector('img,input,iframe,svg'))n.remove();});
  main.querySelectorAll('a[href$=".pdf"]').forEach(a=>{a.classList.add('k2-document-link');a.setAttribute('target','_blank');a.setAttribute('rel','noopener');});
  main.querySelectorAll('.wp-block-image img').forEach(img=>{img.removeAttribute('sizes');if(!img.alt)img.alt='Podklad projektu Koupelní 2';lightbox(img);});
  if(route.startsWith('flats/')){

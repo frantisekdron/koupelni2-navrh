@@ -1,0 +1,5 @@
+import fs from 'node:fs';import path from 'node:path';
+const root=path.resolve('.'),base='https://frantisekdron.github.io/koupelni2-navrh/',missing=[];
+const pages=fs.readdirSync('predani/web',{recursive:true}).filter(f=>f.endsWith('index.html'));
+for(const page of pages){const url=base+'predani/web/'+page,html=fs.readFileSync('predani/web/'+page,'utf8');for(const m of html.matchAll(/\s(?:src|href|poster)="([^"]+)"/g)){const raw=m[1].replaceAll('&amp;','&');if(/^(?:#|data:|mailto:|tel:|javascript:)/.test(raw))continue;const u=new URL(raw,url);if(u.origin!=='https://frantisekdron.github.io')continue;if(!u.pathname.startsWith('/koupelni2-navrh/')){missing.push([page,raw]);continue;}let file=path.join(root,decodeURIComponent(u.pathname).replace('/koupelni2-navrh/',''));if(fs.existsSync(file)&&fs.statSync(file).isDirectory())file=path.join(file,'index.html');if(!fs.existsSync(file))missing.push([page,raw]);}}
+if(missing.length)throw Error(JSON.stringify(missing.slice(0,8)));console.log('PASS:',pages.length,'pages; all local link and resource targets exist.');

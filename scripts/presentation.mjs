@@ -3,9 +3,18 @@ import {optimizeMarkup, heroMarkup, filmCoverMarkup} from './performance.mjs';
 const building=fs.readFileSync(new URL('../predani/web/_design/building.svg',import.meta.url),'utf8');
 const aliases=JSON.parse(fs.readFileSync(new URL('./unit-aliases.json',import.meta.url),'utf8'));
 const visuals=JSON.parse(fs.readFileSync(new URL('./visualizations.json',import.meta.url),'utf8'));
-export const presentationRevision='20261031-performance-3';
+export const presentationRevision='20261031-final-approval-1';
 export function present(html,pagePath,sourcePages){
  const base='/koupelni2-navrh/predani/web/';
+ html=html.replaceAll('https://frantisekdron.github.io/web/','https://frantisekdron.github.io'+base);
+ // Imported Illustrator clips must reference this SVG, never a CMS HTML route.
+ html=html.replace(/url\(&quot;\/web\/pudorysy\/#(SVGID_[\w]+)&quot;\)/g,'url(#$1)');
+ let clipIndex=0;
+ html=html.replace(/<svg\b[\s\S]*?<\/svg>/g,svg=>{
+  const prefix='k2-clip-'+clipIndex+++'-';
+  for(const [,id] of [...svg.matchAll(/\bid="(SVGID_[^"]+)"/g)])svg=svg.replaceAll('id="'+id+'"','id="'+prefix+id+'"').replaceAll('#'+id,'#'+prefix+id);
+  return svg;
+ });
  if(pagePath==='index.html'){
   html=html.replace('class="k2-hero"','class="k2-hero k2-hero--video-first"');
   if(!html.includes('data-k2-hero-video'))html=html.replace('</head>',`<link data-k2-hero-video rel="stylesheet" href="${base}_design/hero-video.css?v=20261031-1"></head>`).replace('</body>',`<script src="${base}_design/hero-video.js?v=20261031-1" defer></script></body>`);
@@ -33,7 +42,7 @@ export function present(html,pagePath,sourcePages){
   if(html.includes('id="atmosfery"'))html=html.replace(/<section\b[^>]*\bid="atmosfery"[\s\S]*?<\/section>/,exterior);else html=html.replace(interior,interior+exterior);
  }
  html=html.replace(/<template id="k2-building-template">[\s\S]*?<\/template>/g,'');
- html=html.replace(/((?:finish|chapters)\.(?:css|js)\?v=)[^"']+/g,'$1'+presentationRevision);
+ html=html.replace(/((?:finish|chapters|energy-calc)\.(?:css|js)\?v=)[^"']+/g,'$1'+presentationRevision);
  if(!html.includes('data-k2-presentation'))html=html.replace('</head>',`<link data-k2-presentation rel="stylesheet" href="${base}_design/finish.css?v=${presentationRevision}"></head>`).replace('</body>',`<script src="${base}_design/finish.js?v=${presentationRevision}" defer></script></body>`);
  if(!html.includes('data-k2-chapters'))html=html.replace('</head>',`<link data-k2-chapters rel="stylesheet" href="${base}_design/chapters.css?v=${presentationRevision}"></head>`).replace('</body>',`<script src="${base}_design/chapters.js?v=${presentationRevision}" defer></script></body>`);
  html=html.replaceAll('https://koupelni.hireal.cz/flats/',base+'flats/');for(const [from,to] of Object.entries(aliases))html=html.replaceAll(from,to);

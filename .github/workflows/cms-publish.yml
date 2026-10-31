@@ -28,6 +28,10 @@ jobs:
         env:
           KOUPELNI_CMS_TOKEN: ${{ secrets.KOUPELNI_CMS_TOKEN }}
         run: node scripts/cms-sync.mjs
+      - name: Verify presentation and local links
+        run: |
+          node tests/presentation-regression.mjs
+          node tests/local-links.mjs
       - name: Keep a versioned copy
         if: steps.cms.outputs.changed == 'true'
         run: |

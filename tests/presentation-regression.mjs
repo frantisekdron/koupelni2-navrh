@@ -1,0 +1,33 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {filmCoverMarkup} from '../scripts/performance.mjs';
+import {present,presentationRevision} from '../scripts/presentation.mjs';
+const base='/koupelni2-navrh/predani/web/';
+const url='https://player.vimeo.com/video/1240197567?h=cdd743aece&amp;dnt=1';
+const first=filmCoverMarkup(base,`<div class="k2-vimeo-frame"><iframe src="${url}"></iframe></div>`);
+assert(first.includes(`data-film-url="${url}"`));
+// The original unwrapped iframe and the generated cover must preserve their own target.
+const wrapped=filmCoverMarkup(base,`<iframe src="${url}"></iframe>`);
+assert(wrapped.includes(`data-film-url="${url}"`));
+assert.equal(filmCoverMarkup(base,wrapped),wrapped);
+assert.equal(filmCoverMarkup(base,first),first);
+const repaired=filmCoverMarkup(base,`<div data-film-url="${base}media/film-cover.webp"><img src="${base}media/film-cover.webp"></div>`);
+assert(repaired.includes('data-film-url="https://player.vimeo.com/video/1240197567?'));
+const html=fs.readFileSync(new URL('../predani/web/flats/gs_06/index.html',import.meta.url),'utf8').replaceAll('https://frantisekdron.github.io/koupelni2-navrh/predani/web/','https://frantisekdron.github.io/web/');
+const fixed=present(html,'flats/gs_06/index.html');
+assert(!fixed.includes('https://frantisekdron.github.io/web/'));
+assert(fixed.includes('/predani/web/_design/variant-b.css'));
+assert(fixed.includes(presentationRevision));
+const home=fs.readFileSync(new URL('../predani/web/index.html',import.meta.url),'utf8');
+const ready=present(home,'index.html');assert.equal(present(ready,'index.html'),ready);
+assert(ready.includes('data-film-url="https://player.vimeo.com/video/1240197567?'));
+assert(ready.includes('data-native-hero autoplay muted'));
+console.log('PASS: repeat export preserves Vimeo, repairs invalid cover targets and normalizes imported asset paths.');
+
+const clip='<svg><defs><path id="SVGID_1_"/><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_"/></clipPath></defs><g style="clip-path:url(&quot;/web/pudorysy/#SVGID_2_&quot;)"></g></svg>';
+const clips=present('<html><head></head><body>'+clip+clip+'</body></html>','test/index.html');
+assert(!clips.includes('&quot;/web/pudorysy/'));
+assert(clips.includes('url(#k2-clip-0-SVGID_2_)'));
+assert(clips.includes('url(#k2-clip-1-SVGID_2_)'));
+assert.equal(present(clips,'test/index.html'),clips);
+console.log('PASS: embedded floor-plan clipping stays local and SVG IDs are unique.');
