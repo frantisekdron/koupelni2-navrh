@@ -20,5 +20,8 @@
  new IntersectionObserver(()=>visible()?play():v.pause(),{threshold:0}).observe(figure);
  document.addEventListener('visibilitychange',()=>document.hidden?v.pause():play());
  window.addEventListener('pageshow',play);
+ // Retry after the first permitted gesture if the browser blocks background autoplay.
+ document.addEventListener('pointerdown',play,{passive:true});
+ document.addEventListener('keydown',play);
  motion.addEventListener('change',()=>{if(restricted()){manual=false;v.pause();}else play();});
 })();

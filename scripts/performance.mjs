@@ -26,7 +26,7 @@ export function optimizeMarkup(html,pagePath){
   if(!item)return tag;
   tag=set(set(set(set(set(tag,'src',item.src),'srcset',item.srcset),'width',item.width),'height',item.height),'data-original-src',original);
   tag=set(tag,'data-full-src',item.full);
-  const sizes=hero?'(max-width: 767px) 100vw, (max-width: 1200px) 60vw, 800px':pagePath==='galerie/index.html'?'(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 430px':'(max-width: 767px) 100vw, 720px';
+  const sizes=hero?'(max-width: 767px) 100vw, (max-width: 1200px) 60vw, 800px':pagePath.startsWith('flats/')&&/wp-block-themeisle-blocks-slider-item/.test(tag)?'(max-width: 540px) 50vw, 250px':pagePath==='galerie/index.html'?'(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 430px':'(max-width: 767px) 100vw, 720px';
   return set(tag,'sizes',sizes);
  });
  // High resolution is fetched only when a visitor actually opens the detail.
@@ -34,7 +34,7 @@ export function optimizeMarkup(html,pagePath){
  html=html.replace(/<iframe\b[^>]*>/g,tag=>set(tag,'loading','lazy'));
  // Only B is the approved final design. Retain the previous variant files in history.
  html=html.replace(/<link\b[^>]*href="[^"]*\/variant-[ac]\.css"[^>]*>\s*/g,'');
- if(!html.includes('data-k2-performance'))html=html.replace('</head>',`<link data-k2-performance rel="stylesheet" href="${base}_design/performance.css?v=20261031-1"></head>`).replace('</body>',`<script src="${base}_design/performance.js?v=20261031-1" defer></script></body>`);
+ if(!html.includes('data-k2-performance'))html=html.replace('</head>',`<link data-k2-performance rel="stylesheet" href="${base}_design/performance.css?v=20261031-2"></head>`).replace('</body>',`<script src="${base}_design/performance.js?v=20261031-2" defer></script></body>`);
  return html;
 }
 export function heroMarkup(base,old=""){

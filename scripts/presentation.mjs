@@ -3,7 +3,7 @@ import {optimizeMarkup, heroMarkup, filmCoverMarkup} from './performance.mjs';
 const building=fs.readFileSync(new URL('../predani/web/_design/building.svg',import.meta.url),'utf8');
 const aliases=JSON.parse(fs.readFileSync(new URL('./unit-aliases.json',import.meta.url),'utf8'));
 const visuals=JSON.parse(fs.readFileSync(new URL('./visualizations.json',import.meta.url),'utf8'));
-export const presentationRevision='20261031-performance-1';
+export const presentationRevision='20261031-performance-2';
 export function present(html,pagePath,sourcePages){
  const base='/koupelni2-navrh/predani/web/';
  if(pagePath==='index.html'){
