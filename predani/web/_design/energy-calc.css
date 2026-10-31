@@ -2,6 +2,7 @@ html[data-k2-variant] .k2-review .k2-energy-arrow{display:flex;align-items:cente
 html[data-k2-variant] .k2-review .k2-energy-badge{display:flex;align-items:center;gap:13px;border:1px solid #8eb59b;background:#eff7f0;padding:12px 17px 12px 12px;width:fit-content;color:#16492d;text-decoration:none;margin:2px 0 20px}
 html[data-k2-variant] .k2-review .k2-energy-badge>span:last-child{display:flex;flex-direction:column;gap:3px;font:400 15px/1.4 Arial,sans-serif}
 html[data-k2-variant] .k2-review .k2-energy-badge strong{font-size:19px;color:#16492d}
+html[data-k2-variant] .k2-review .k2-finance-energy-badge{margin:22px 0 24px;max-width:100%;border-radius:4px;scroll-margin-top:130px}
 html[data-k2-variant="b"] body.k2-review.home .k2-energy-badge{grid-column:2;grid-row:3}
 html[data-k2-variant="b"] body.k2-review.home .k2-intro-note{grid-row:4}
 html[data-k2-variant="b"] body.k2-review.home .k2-hero__copy>.k2-button{grid-row:5}

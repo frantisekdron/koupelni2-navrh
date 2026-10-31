@@ -3,7 +3,7 @@ import {optimizeMarkup, heroMarkup, filmCoverMarkup} from './performance.mjs';
 const building=fs.readFileSync(new URL('../predani/web/_design/building.svg',import.meta.url),'utf8');
 const aliases=JSON.parse(fs.readFileSync(new URL('./unit-aliases.json',import.meta.url),'utf8'));
 const visuals=JSON.parse(fs.readFileSync(new URL('./visualizations.json',import.meta.url),'utf8'));
-export const presentationRevision='20261031-parking-plan-2';
+export const presentationRevision='20261031-finance-penb-1';
 export function present(html,pagePath,sourcePages){
  const base='/koupelni2-navrh/predani/web/';
  html=html.replaceAll('https://frantisekdron.github.io/web/','https://frantisekdron.github.io'+base);
@@ -40,6 +40,10 @@ export function present(html,pagePath,sourcePages){
   html=html.replace(/<section\b[^>]*\bid="vizualizace"[\s\S]*?<\/section>/,interior);
   const exterior=`<section class="k2-gallery-section k2-visualizations" id="atmosfery"><div class="k2-gallery-heading"><h2>Dům v různém světle</h2><span>Exteriérové vizualizace</span></div><p>Atmosférické varianty a zamýšlené dokončení okolí domu. Nejde o fotografie současného stavu.</p><div class="k2-photo-grid">${visuals.exteriors.map(figure).join('')}</div></section>`;
   if(html.includes('id="atmosfery"'))html=html.replace(/<section\b[^>]*\bid="atmosfery"[\s\S]*?<\/section>/,exterior);else html=html.replace(interior,interior+exterior);
+ }
+ if(pagePath==='zpusob-financovani/index.html'&&!html.includes('id="penb-financovani"')){
+  const badge=`<a id="penb-financovani" class="k2-energy-badge k2-finance-energy-badge" href="${base}#energeticka-trida"><span class="k2-energy-arrow" aria-hidden="true">A</span><span><strong>PENB A</strong><span>Mimořádně úsporná budova</span></span></a>`;
+  html=html.replace(/(<h2\b[^>]*>\s*Spolupracujte s profesionály\s*<\/h2>)/i,'$1'+badge);
  }
  html=html.replace(/<template id="k2-building-template">[\s\S]*?<\/template>/g,'');
  html=html.replace(/((?:finish|chapters|energy-calc)\.(?:css|js)\?v=)[^"']+/g,'$1'+presentationRevision);
