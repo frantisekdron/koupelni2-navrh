@@ -37,6 +37,36 @@ if(route==='aktuality'){
  const intro=e('section','chapter-dark chapter-news-intro');intro.append(e('p','k2-eyebrow','Aktuality a zajímavosti'),e('h2','','Ze stavby i z Hodonína.'),e('p','','Průběh rekonstrukce, dokončování jednotek a zprávy z okolí. Nejnovější datované příspěvky najdete nahoře.'));root.append(intro);
  const list=e('div','chapter-news-list');records.forEach((r,i)=>{const item=e('article','chapter-news-item');if(r.image){r.image.removeAttribute('style');r.image.removeAttribute('srcset');r.image.className='chapter-news-thumb';r.image.alt=r.title;r.image.loading='lazy';item.append(r.image);}const copy=e('div','chapter-news-copy');if(r.date){const t=e('time','chapter-news-date',r.date);t.dateTime=new Date(r.time+12*3600000).toISOString().slice(0,10);copy.append(t);}copy.append(e('h2','',r.title),e('p','chapter-news-excerpt',r.paragraph.length>210?r.paragraph.slice(0,210).replace(/\s+\S*$/,'')+'…':r.paragraph));const count=r.content.querySelectorAll('img').length;const d=disclosure('Celý příspěvek'+(count?' · fotografie '+count:''),r.content);d.id='aktualita-'+(i+1);copy.append(d);item.append(copy);list.append(item);});root.append(list);
 }
+if(route==='standardy'){
+ const root=main.querySelector('.entry-content'),specs=root?.querySelector('.k2-specifications'),update=specs?.querySelector('.k2-standard-update');
+ if(root&&specs&&update&&!root.classList.contains('chapter-standards')){
+  // Move the CMS's own headings and text, including the full technical disclosures.
+  const intro=[...specs.querySelectorAll(':scope > .k2-spec-intro')],rows=[...specs.querySelectorAll(':scope > .k2-spec-row')];
+  const groups=[...update.querySelectorAll('h2')].map(heading=>{const content=e('div','std-copy');let n=heading.nextElementSibling;while(n&&!n.matches('h2,#screeny-ve-standardu')){const next=n.nextElementSibling;content.append(n);n=next;}return {heading,content};});
+  const catalogUrl=root.querySelector('a[href*="Koupelni_2_katalog_standardu.pdf"]')?.href||new URL('../downloads/Koupelni_2_katalog_standardu.pdf',assetBase).href;
+  const icon=kind=>{
+   const wrap=e('span','std-icon');wrap.setAttribute('aria-hidden','true');
+   if(kind==='energy'){wrap.classList.add('std-energy');wrap.append(e('span','std-energy-arrow','A'));return wrap;}
+   const paths={access:['M15 7a2 2 0 1 0-4 0 2 2 0 0 0 4 0','M12 10v6h5l3 5','M12 12h5','M9 13a6 6 0 1 0 7 7'],parking:['M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2','M9 18V7h4a3.5 3.5 0 0 1 0 7H9'],heat:['M5 10v11M10 10v11M15 10v11M20 10v11M3 13h19M3 18h19','M7 7c-3-2 3-3 0-5M13 7c-3-2 3-3 0-5M19 7c-3-2 3-3 0-5'],document:['M14 3H5v18h14V8z','M14 3v5h5M8 12h8M8 16h6']};
+   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('fill','none');svg.setAttribute('stroke','currentColor');svg.setAttribute('stroke-width','1.5');svg.setAttribute('stroke-linecap','round');svg.setAttribute('stroke-linejoin','round');
+   (paths[kind]||[]).forEach(d=>{const p=document.createElementNS(svg.namespaceURI,'path');p.setAttribute('d',d);svg.append(p);});wrap.append(svg);return wrap;
+  };
+  const media=(hash,alt,caption,kind,height=1599)=>{
+   const figure=e('figure','std-media '+(kind||'')),frame=e('div','std-photo-window'),link=a('',assetBase+'media/optimized/'+hash+'-2200.webp','std-photo-link');link.dataset.lightbox='standards';link.setAttribute('aria-label','Zvětšit: '+alt);
+   const img=e('img');img.src=assetBase+'media/optimized/'+hash+'-960.webp';img.srcset=[480,960,1600].map(w=>assetBase+'media/optimized/'+hash+'-'+w+'.webp '+w+'w').join(', ');img.sizes=kind==='std-floor'?'(max-width: 700px) 280vw, 1120px':'(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 400px';img.width=2400;img.height=height;img.loading='lazy';img.decoding='async';img.alt=alt;link.append(img);frame.append(link);figure.append(frame,e('figcaption','',caption));return figure;
+  };
+  const features=e('div','std-feature-grid');features.dataset.gallery='standards';
+  const photos=[['abe36562b3f00f','Podlaha v interiéru Koupelní 2','Detail podlahy · fotografie z domu','std-floor'],['b6db651e5292b7','Jižní fasáda se screenovým stíněním','Screeny · vizualizace plánovaného dokončení','std-screens',1800],['80516a2fcc0cb3','Realizovaná kuchyň v domě Koupelní 2','Kuchyň · skutečná fotografie','std-kitchen']];
+  groups.slice(0,3).forEach((group,i)=>{const card=e('section','std-feature'),bar=e('div','std-bar');bar.append(group.heading);card.append(media(...photos[i]),bar,group.content);if(i===1)card.id='screeny-ve-standardu';if(i===2){const l=group.content.querySelector('a');if(l)l.className='chapter-text-link';}features.append(card);});
+  const catalog=e('section','std-catalog chapter-dark');catalog.id='individualni-vyber';
+  const catalogBody=e('div','std-catalog-copy');if(groups[3])catalogBody.append(groups[3].heading,groups[3].content);const download=a('Otevřít katalog standardů · PDF ↗',catalogUrl);download.target='_blank';download.rel='noopener';catalogBody.append(download);catalog.append(icon('document'),catalogBody);
+  const technical=e('section','std-technical'),grid=e('div','std-technical-grid');technical.append(e('p','k2-eyebrow','Komfort a technické řešení'),grid);
+  rows.forEach(row=>{const heading=row.querySelector('h2'),copy=row.querySelector('.k2-spec-copy');if(!heading||!copy)return;const title=heading.textContent,card=e('section','std-technical-card'),bar=e('div','std-bar');let kind='';if(title.includes('energetická'))kind='energy';else if(title.includes('vytápění'))kind='heat';else if(title.includes('Bezbariérovost'))kind='access';else if(title.includes('Parkování'))kind='parking';if(kind)bar.append(icon(kind));
+   const titleBox=e('div');if(kind==='energy')titleBox.append(e('p','std-bar-label','PENB · třída A'));titleBox.append(heading);bar.append(titleBox);copy.classList.remove('k2-spec-copy');copy.classList.add('std-copy');card.append(bar,copy);if(!kind)card.classList.add('std-equipment');if(kind==='parking')copy.append(a('Prohlédnout parkování ↗',base+'parkovani/','chapter-text-link'));grid.append(card);});
+  root.replaceChildren();root.classList.add('chapter-root','chapter-standards');const opening=e('div','std-intro');opening.append(...intro);root.append(opening,features,catalog,technical);
+  main.querySelectorAll(':scope > section').forEach(section=>{if(!section.textContent.trim()&&!section.querySelector('img,svg,iframe'))section.remove();});
+ }
+}
 if(route==='parkovani'){
  const root=main.querySelector('.container-width-content');if(!root)return;root.classList.add('chapter-root');const stats=root.querySelector('.k2-parking-summary');if(stats){stats.classList.add('chapter-dark');const title=e('div','chapter-parking-title');title.append(e('p','k2-eyebrow','Venku i v suterénu'),e('h2','','Parkování má své místo.'));stats.prepend(title);}
  const interactive=root.querySelector('.k2-parking-interactive'),map=root.querySelector('.k2-parking-plan'),views=root.querySelector('.k2-render-grid');if(interactive){interactive.classList.add('chapter-parking-selector');const unitList=interactive.querySelector('.k2-floor-unit-list');if(unitList){const marker=e('div');unitList.before(marker);marker.replaceWith(disclosure('Přehled garáží a stání',unitList));}}
