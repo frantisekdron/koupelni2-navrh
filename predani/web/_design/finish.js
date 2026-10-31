@@ -78,6 +78,13 @@
  if(!route)document.querySelector('.k2-floor-intro')?.remove();
  // Keep the original long text inside an explicit disclosure, without deleting it.
  main.querySelectorAll('.k2-spec-copy>p,.wp-block-media-text__content p').forEach(p=>{if(p.textContent.length<650||p.querySelector('a'))return;const text=p.textContent.trim(),at=text.indexOf('. ',100);if(at<0)return;const d=el('details','k2-full-copy');d.append(el('summary','','Celé znění'));p.before(el('p','k2-short-copy',text.slice(0,at+1)),d);d.append(p);});
- document.querySelectorAll('.k2-desktop-links,.k2-mobile-links .k2-more-links').forEach(nav=>{if(!nav.querySelector('[data-interactive-link]')){const a=link('Interaktivní výběr',base+'#pudorysy','');a.dataset.interactiveLink='true';nav.insertBefore(a,nav.children[1]||null);}});
+ // Move the existing destination out of "Další"; never add a second copy.
+ document.querySelectorAll('.k2-desktop-links,.k2-mobile-links .k2-more-links').forEach(nav=>{
+  const matches=[...nav.querySelectorAll('a')].filter(a=>a.hasAttribute('data-interactive-link')||a.textContent.trim()==='Interaktivní výběr');
+  const interactive=matches.shift()||link('Interaktivní výběr',base+'#pudorysy','');
+  matches.forEach(a=>a.remove());interactive.dataset.interactiveLink='true';interactive.href=base+'#pudorysy';
+  const first=nav.querySelector(':scope > a');if(first!==interactive)first?first.after(interactive):nav.prepend(interactive);
+  const seen=new Set();nav.querySelectorAll('a').forEach(a=>{const u=new URL(a.href,location.href),key=u.pathname.replace(/index\.html$/,'').replace(/\/$/,'')+u.search+u.hash;if(seen.has(key))a.remove();else seen.add(key);});
+ });
  const footer=document.querySelector('.site-footer .master-margin');if(footer&&!footer.querySelector('.k2-credit')){const a=link('made by frantisekdron.cz','https://frantisekdron.cz/','k2-credit');a.rel='noopener';a.target='_blank';footer.append(a);}
 })();
