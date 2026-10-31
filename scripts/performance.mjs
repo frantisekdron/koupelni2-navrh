@@ -34,8 +34,8 @@ export function optimizeMarkup(html,pagePath){
  html=html.replace(/<iframe\b[^>]*>/g,tag=>set(tag,'loading','lazy'));
  // Only B is the approved final design. Retain the previous variant files in history.
  html=html.replace(/<link\b[^>]*href="[^"]*\/variant-[ac]\.css"[^>]*>\s*/g,'');
- if(!html.includes('data-k2-performance'))html=html.replace('</head>',`<link data-k2-performance rel="stylesheet" href="${base}_design/performance.css?v=20261031-3"></head>`).replace('</body>',`<script src="${base}_design/performance.js?v=20261031-3" defer></script></body>`);
- html=html.replace(/(_design\/performance\.(?:js|css)\?v=)[^"\s]+/g,(_,prefix)=>prefix+'20261031-3');
+ if(!html.includes('data-k2-performance'))html=html.replace('</head>',`<link data-k2-performance rel="stylesheet" href="${base}_design/performance.css?v=20261031-parking-4"></head>`).replace('</body>',`<script src="${base}_design/performance.js?v=20261031-parking-4" defer></script></body>`);
+ html=html.replace(/(_design\/performance\.(?:js|css)\?v=)[^"\s]+/g,(_,prefix)=>prefix+'20261031-parking-4');
  return html;
 }
 export function heroMarkup(base,old=""){

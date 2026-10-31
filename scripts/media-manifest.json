@@ -48,11 +48,11 @@
     "technical": false
   },
   "https://koupelni.hireal.cz/wp-content/uploads/2025/09/Parkoviste-celek-07.02.2025-edited-1024x768.jpg": {
-    "width": 1024,
-    "height": 768,
-    "src": "/koupelni2-navrh/predani/web/media/optimized/49f70a541c9acf-960.webp",
-    "srcset": "/koupelni2-navrh/predani/web/media/optimized/49f70a541c9acf-480.webp 480w, /koupelni2-navrh/predani/web/media/optimized/49f70a541c9acf-960.webp 960w, /koupelni2-navrh/predani/web/media/optimized/49f70a541c9acf-1024.webp 1024w",
-    "full": "/koupelni2-navrh/predani/web/media/optimized/49f70a541c9acf-1024.webp",
+    "width": 2560,
+    "height": 2100,
+    "src": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-960.svg",
+    "srcset": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-960.svg 960w, /koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-1600.svg 1600w, /koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-2560.svg 2560w",
+    "full": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-2560.svg",
     "technical": true
   },
   "https://koupelni.hireal.cz/wp-content/uploads/2026/05/Suteren-garaze-all-1-new-v5-scaled.jpg": {
@@ -3222,5 +3222,29 @@
     "srcset": "/koupelni2-navrh/predani/web/media/optimized/863096b154baa6-480.webp 480w, /koupelni2-navrh/predani/web/media/optimized/863096b154baa6-960.webp 960w, /koupelni2-navrh/predani/web/media/optimized/863096b154baa6-1024.webp 1024w",
     "full": "/koupelni2-navrh/predani/web/media/optimized/863096b154baa6-1024.webp",
     "technical": false
+  },
+  "/koupelni2-navrh/predani/web/media/optimized/49f70a541c9acf-960.webp": {
+    "width": 2560,
+    "height": 2100,
+    "src": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-960.svg",
+    "srcset": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-960.svg 960w, /koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-1600.svg 1600w, /koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-2560.svg 2560w",
+    "full": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-2560.svg",
+    "technical": true
+  },
+  "/koupelni2-navrh/predani/web/media/optimized/49f70a541c9acf-1024.webp": {
+    "width": 2560,
+    "height": 2100,
+    "src": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-960.svg",
+    "srcset": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-960.svg 960w, /koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-1600.svg 1600w, /koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-2560.svg 2560w",
+    "full": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-2560.svg",
+    "technical": true
+  },
+  "/koupelni2-navrh/predani/web/media/optimized/49f70a541c9acf-480.webp": {
+    "width": 2560,
+    "height": 2100,
+    "src": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-960.svg",
+    "srcset": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-960.svg 960w, /koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-1600.svg 1600w, /koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-2560.svg 2560w",
+    "full": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-2560.svg",
+    "technical": true
   }
 }
