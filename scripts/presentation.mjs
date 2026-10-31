@@ -3,7 +3,7 @@ import {optimizeMarkup, heroMarkup, filmCoverMarkup} from './performance.mjs';
 const building=fs.readFileSync(new URL('../predani/web/_design/building.svg',import.meta.url),'utf8');
 const aliases=JSON.parse(fs.readFileSync(new URL('./unit-aliases.json',import.meta.url),'utf8'));
 const visuals=JSON.parse(fs.readFileSync(new URL('./visualizations.json',import.meta.url),'utf8'));
-export const presentationRevision='20261031-finance-penb-1';
+export const presentationRevision='20261031-inside-clean-1';
 export function present(html,pagePath,sourcePages){
  const base='/koupelni2-navrh/predani/web/';
  html=html.replaceAll('https://frantisekdron.github.io/web/','https://frantisekdron.github.io'+base);
@@ -16,6 +16,11 @@ export function present(html,pagePath,sourcePages){
   return svg;
  });
  if(pagePath==='index.html'){
+  // Replace only the old kitchen selection; preserve future CMS photo choices.
+  html=html.replace(/(<a\b[^>]*class="k2-inside__main"[^>]*>)(<img\b[^>]*>)/,(_,opening,tag)=>{
+   const cleaned=tag.replaceAll('DSC00995.jpg','DSC00995_police_DOPLNENO.jpg').replaceAll('38b3146be5ba31','fbed473f5c7d37');
+   return opening+(cleaned===tag?tag:cleaned.replace(/alt="[^"]*"/,'alt="Kuchyň bez odložených desek, s digitálně doplněnými policemi"'));
+  });
   html=html.replace('class="k2-hero"','class="k2-hero k2-hero--video-first"');
   if(!html.includes('data-k2-hero-video'))html=html.replace('</head>',`<link data-k2-hero-video rel="stylesheet" href="${base}_design/hero-video.css?v=20261031-1"></head>`).replace('</body>',`<script src="${base}_design/hero-video.js?v=20261031-1" defer></script></body>`);
   html=html.replace(/<video\b[^>]*class="k2-hero-video"[^>]*>[\s\S]*?<\/video>/,old=>heroMarkup(base,old));
