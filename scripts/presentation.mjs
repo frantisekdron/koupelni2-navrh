@@ -3,7 +3,7 @@ import {optimizeMarkup, heroMarkup, filmCoverMarkup} from './performance.mjs';
 const building=fs.readFileSync(new URL('../predani/web/_design/building.svg',import.meta.url),'utf8');
 const aliases=JSON.parse(fs.readFileSync(new URL('./unit-aliases.json',import.meta.url),'utf8'));
 const visuals=JSON.parse(fs.readFileSync(new URL('./visualizations.json',import.meta.url),'utf8'));
-export const presentationRevision='20261106-valach-1';
+export const presentationRevision='20261111-valach-1';
 export function present(html,pagePath,sourcePages){
  const base='/koupelni2-navrh/predani/web/';
  html=html.replaceAll('https://frantisekdron.github.io/web/','https://frantisekdron.github.io'+base);
@@ -51,8 +51,13 @@ export function present(html,pagePath,sourcePages){
   html=html.replace(/(<h2\b[^>]*>\s*Spolupracujte s profesionály\s*<\/h2>)/i,'$1'+badge);
  }
  html=html.replace(/<template id="k2-building-template">[\s\S]*?<\/template>/g,'');
- html=html.replace(/((?:finish|chapters|energy-calc)\.(?:css|js)\?v=)[^"']+/g,'$1'+presentationRevision);
+ html=html.replace(/((?:finish|chapters|energy-calc|floor-labels)\.(?:css|js)\?v=)[^"']+/g,'$1'+presentationRevision);
  if(!html.includes('data-k2-presentation'))html=html.replace('</head>',`<link data-k2-presentation rel="stylesheet" href="${base}_design/finish.css?v=${presentationRevision}"></head>`).replace('</body>',`<script src="${base}_design/finish.js?v=${presentationRevision}" defer></script></body>`);
+ if(['pudorysy/index.html','parkovani/index.html'].includes(pagePath)){
+  // Reinsert directly before finish.js even when input HTML was processed before.
+  html=html.replace(/<script\b[^>]*\bdata-k2-floor-labels\b[^>]*><\/script>/g,'');
+  html=html.replace(/(<script\b[^>]*\bsrc="[^"]*\/_design\/finish\.js[^"]*"[^>]*><\/script>)/,`<script data-k2-floor-labels src="${base}_design/floor-labels.js?v=${presentationRevision}" defer></script>$1`);
+ }
  if(!html.includes('data-k2-chapters'))html=html.replace('</head>',`<link data-k2-chapters rel="stylesheet" href="${base}_design/chapters.css?v=${presentationRevision}"></head>`).replace('</body>',`<script src="${base}_design/chapters.js?v=${presentationRevision}" defer></script></body>`);
  html=html.replaceAll('https://koupelni.hireal.cz/flats/',base+'flats/');for(const [from,to] of Object.entries(aliases))html=html.replaceAll(from,to);
  html=html.replace(/(_cms\/site-runtime\.js)(?:\?v=[^"']*)?/g,'$1?v='+presentationRevision);
