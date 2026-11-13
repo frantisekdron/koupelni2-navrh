@@ -3246,5 +3246,13 @@
     "srcset": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-960.svg 960w, /koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-1600.svg 1600w, /koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-2560.svg 2560w",
     "full": "/koupelni2-navrh/predani/web/media/parking/koupelni-plan-v1-2560.svg",
     "technical": true
+  },
+  "https://frantisekdron.github.io/koupelni2-navrh/predani/web/_cms/files/fd646fed-7872-4832-9ffb-ff667df225dd.png": {
+    "width": 3840,
+    "height": 2880,
+    "src": "/koupelni2-navrh/predani/web/media/optimized/fd646fed-7872-4832-9ffb-ff667df225dd-960.webp",
+    "srcset": "/koupelni2-navrh/predani/web/media/optimized/fd646fed-7872-4832-9ffb-ff667df225dd-480.webp 480w, /koupelni2-navrh/predani/web/media/optimized/fd646fed-7872-4832-9ffb-ff667df225dd-960.webp 960w",
+    "full": "/koupelni2-navrh/predani/web/_cms/files/fd646fed-7872-4832-9ffb-ff667df225dd.png",
+    "technical": false
   }
 }

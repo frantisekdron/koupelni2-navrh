@@ -179,3 +179,11 @@ body.k2-finished #k2-main-content .floor_area:is(.reservovano,.rezervovano){fill
 body.k2-finished #k2-main-content .floor_area:is(:hover,:focus){fill:#e5c44f!important}
 
 .k2-parking-interactive{margin:48px 0 64px;padding:clamp(20px,4vw,48px);background:#f1f5f3;border:1px solid #d5e1dc;border-radius:6px}.k2-parking-interactive .floor-blocks{background:#fff;margin:24px 0;border:1px solid #d5e1dc}.k2-parking-interactive .floor{padding:16px}.k2-parking-interactive svg{width:100%;height:auto;display:block}.k2-parking-interactive .k2-plan-heading h2{font-size:22px}.k2-parking-interactive .k2-plan-heading{margin:24px 0 0}.k2-parking-interactive .k2-floor-unit-list{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:700px){.k2-parking-interactive{padding:20px 14px}.k2-parking-interactive .k2-floor-unit-list{grid-template-columns:1fr 1fr}}
+
+/* Client artwork from the completed facade, shared by all page headers. */
+.site-header .site-branding .site-logo {
+  background-image: url("./logo-fasada.svg");
+  background-position: left center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
